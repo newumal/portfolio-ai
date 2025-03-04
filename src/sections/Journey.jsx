@@ -52,9 +52,9 @@ const Journey = () => {
   ];
 
   return (
-    <section id="journey" className="py-16 bg-gray-50">
-      <div className="container mx-auto max-w-4xl px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Professional Journey</h2>
+    <section id="journey" className="py-16 bg-gray-50 dark:bg-gray-800">
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">Professional Journey</h2>
         
         <div className="relative">
           {/* Timeline line */}
@@ -76,28 +76,39 @@ const Journey = () => {
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full"></div>
                 
                 {/* Content */}
-                <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="flex-1">
+                  <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    {/* Company and Position */}
                     <div className="flex items-center gap-3 mb-2">
                       <FaBuilding className="text-primary" />
-                      <h3 className="text-xl font-bold">{exp.company}</h3>
+                      <h3 className="text-xl font-bold dark:text-white">{exp.company}</h3>
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-800">{exp.position}</h4>
-                    <p className="text-gray-600 mt-1">{exp.period}</p>
-                    <p className="text-gray-500 text-sm">{exp.location} • {exp.type}</p>
                     
-                    <div className="mt-4">
-                      <p className="text-gray-700">{exp.description}</p>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {exp.skills.map((skill, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 bg-purple-50 text-primary rounded-full text-sm"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                    {/* Position */}
+                    <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{exp.position}</h4>
+                    
+                    {/* Period and Location */}
+                    <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-4">
+                      <span>{exp.period}</span>
+                      <span>•</span>
+                      <span>{exp.location}</span>
+                      <span>•</span>
+                      <span>{exp.type}</span>
+                    </div>
+                    
+                    {/* Description */}
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
+                    
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 bg-purple-50 dark:bg-purple-900/30 text-primary rounded-full text-sm"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
