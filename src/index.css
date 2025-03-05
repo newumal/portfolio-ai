@@ -26,8 +26,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -84,10 +82,10 @@ button:focus-visible {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary rounded-lg hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    @apply px-6 py-3 bg-primary text-white rounded-lg hover:bg-purple-700 transition-all duration-300 inline-flex items-center;
   }
   .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 text-base font-medium text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:border-primary hover:text-primary transition-all duration-300;
+    @apply px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300;
   }
   .section-container {
     @apply w-full px-6 lg:px-8 py-16 md:py-24;
@@ -104,25 +102,54 @@ button:focus-visible {
 }
 
 /* Swiper Styles */
-.swiper {
+.project-swiper {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  height: 100%;
 }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
+.project-swiper .swiper-slide {
+  height: 100% !important;
+  background: transparent;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  border-radius: 0.5rem;
+.swiper-button-next,
+.swiper-button-prev {
+  color: theme('colors.primary') !important;
+  background: rgba(255, 255, 255, 0.8);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.1);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
 }
 
 .swiper-pagination-bullet {
-  background: theme('colors.primary');
+  background: theme('colors.primary') !important;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.dark .swiper-button-next,
+.dark .swiper-button-prev {
+  background: rgba(31, 41, 55, 0.8);
+}
+
+.dark .swiper-button-next:hover,
+.dark .swiper-button-prev:hover {
+  background: rgba(31, 41, 55, 0.95);
 }

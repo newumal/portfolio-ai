@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +22,7 @@ const Navbar = () => {
     { name: 'About', to: 'about' },
     { name: 'Journey', to: 'journey' },
     { name: 'Skills', to: 'skills' },
+    { name: 'Projects', to: 'projects' },
     { name: 'Qualification', to: 'qualification' },
     { name: 'Contact', to: 'contact' },
   ];
@@ -28,7 +31,7 @@ const Navbar = () => {
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'py-4 bg-white/80 backdrop-blur-lg shadow-lg'
+          ? 'py-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
           : 'py-6 bg-transparent'
       }`}
     >
@@ -39,9 +42,14 @@ const Navbar = () => {
             spy={true}
             smooth={true}
             duration={500}
-            className="text-2xl font-bold text-primary cursor-pointer hover:text-purple-700 transition-colors"
+            className="text-xl font-bold cursor-pointer group"
           >
-            Portfolio
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-primary">
+              Newumal
+            </span>
+            <span className="text-gray-600 dark:text-gray-300">
+              .dev
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -54,13 +62,26 @@ const Navbar = () => {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                className="text-gray-600 hover:text-primary cursor-pointer transition-colors relative group"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer transition-colors relative group"
                 activeClass="text-primary"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
+
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? (
+                <SunIcon className="h-6 w-6" />
+              ) : (
+                <MoonIcon className="h-6 w-6" />
+              )}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
