@@ -20,7 +20,7 @@ const About = () => {
     },
     {
       category: "Cloud & DevOps",
-      items: ["AWS (EC2, Lambda)", "CI/CD", "Docker", "Kubernetes", "GitHub Actions", "Jenkins", "Terraform"],
+      items: ["AWS Services", "CI/CD", "Docker", "Kubernetes", "GitHub Actions", "Jenkins", "Terraform"],
       icon: <FaCloud className="w-6 h-6 text-blue-400" />
     },
     {
