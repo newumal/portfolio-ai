@@ -120,7 +120,7 @@ Newumal's dedication to our projects and their commitment to driving results is 
 
 When we encountered critical issues with our payment processing system, Newumal implemented a solution that not only fixed our immediate concerns but also improved the overall architecture. His foresight in designing our database structure has allowed us to scale efficiently.
 
-Newumal's communication skills deserve special mention - he consistently kept us informed, explained technical concepts clearly to non-technical stakeholders, and was always receptive to feedback. His commitment to quality resulted in a robust platform that continues to serve thousands of customers daily.`
+Newumal's communication skills deserve special mention - he consistently kept us informed, he was always receptive to feedback. His commitment to quality resulted in a robust platform that continues to serve thousands of customers daily.`
     }
   ];
 

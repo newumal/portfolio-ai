@@ -7,7 +7,7 @@ const Qualification = () => {
       type: 'certification',
       title: 'Generative AI Fundamentals',
       institution: 'Coursera - DeepLearning.AI',
-      period: '2024',
+      period: '2025',
       description: 'Completed comprehensive training in Large Language Models, Prompt Engineering, and Generative AI applications',
       icon: <FaCertificate className="w-6 h-6" />
     },
@@ -15,8 +15,8 @@ const Qualification = () => {
       type: 'certification',
       title: 'AWS Certified Solutions Architect - Associate(Reading)',
       institution: 'Amazon Web Services (AWS)',
-      period: '2024',
-      description: 'Certified in designing distributed systems and deploying applications on AWS infrastructure',
+      period: '2025',
+      description: 'Designing distributed systems and deploying applications on AWS infrastructure',
       icon: <FaCertificate className="w-6 h-6" />
     },
     {
