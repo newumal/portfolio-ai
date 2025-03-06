@@ -26,9 +26,8 @@ const About = () => {
     {
       category: "AI & Machine Learning",
       items: [
-        "Large Language Models",
-        "ChatGPT Integration",
         "Prompt Engineering",
+        "Large Language Models",
         "AI Application Design",
         "Neural Networks",
         "Machine Learning"
@@ -120,13 +119,13 @@ const About = () => {
                 Senior Software Engineer
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-                With a strong foundation in full-stack development, I'm enthusiastically exploring 
-                the integration of AI technologies. Currently learning and applying AI tools and 
-                services in web applications, while maintaining expertise in custom integrations 
-                and cloud solutions. Excited about the potential of AI to enhance application 
+                With a strong foundation in full-stack development, I'm enthusiastically exploring
+                the integration of AI technologies. Currently learning and applying AI tools and
+                services in web applications, while maintaining expertise in custom integrations
+                and cloud solutions. Excited about the potential of AI to enhance application
                 functionality and user experience.
               </p>
-              
+
               {/* Core Competencies Grid */}
               <div className="grid grid-cols-2 gap-4">
                 {coreCompetencies.map((comp, index) => (
@@ -159,8 +158,8 @@ const About = () => {
               <div className="space-y-2">
                 <h5 className="text-xl font-bold text-gray-900 dark:text-white">Bachelor of Science</h5>
                 <p className="text-lg text-primary">University of Colombo, Sri Lanka</p>
-                <p className="text-gray-600 dark:text-gray-400">Electronics & IT</p>
-                <p className="text-gray-500">2014 - 2017</p>
+                <p className="text-gray-600 dark:text-gray-400">BSc in Electronics and Information Technology</p>
+                <p className="text-gray-500">2014 - 2018</p>
               </div>
             </motion.div>
           </div>

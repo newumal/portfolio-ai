@@ -55,13 +55,14 @@ const Home = () => {
                 className="flex-1 text-center lg:text-left space-y-8"
             >
               <div className="space-y-4">
-              <span className="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-primary rounded-full text-sm font-medium">
+              <span
+                  className="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-primary rounded-full text-sm font-medium">
                 Welcome to my portfolio
               </span>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight dark:text-white">
-                  Hello, I'm
-                  <div className="flex items-center justify-between">
-                    <div className="flex-grow">
+                  Hey, I'm
+                  <div className="flex items-center justify-between whitespace-nowrap"> {/* Added whitespace-nowrap */}
+                    <div className="flex-grow min-w-0"> {/* Added min-w-0 to prevent overflow */}
                       <motion.span
                           className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-primary leading-normal"
                           animate={controls}
@@ -69,8 +70,8 @@ const Home = () => {
                         {displayText}
                         {!isTypingComplete && (
                             <motion.span
-                                animate={{ opacity: [1, 0] }}
-                                transition={{ duration: 0.5, repeat: Infinity }}
+                                animate={{opacity: [1, 0]}}
+                                transition={{duration: 0.5, repeat: Infinity}}
                                 className="inline-block ml-[2px] w-[3px] h-[48px] bg-primary align-middle"
                             >
                               |
@@ -79,7 +80,7 @@ const Home = () => {
                       </motion.span>
                     </div>
 
-                    {/* Speaker Icon moved to right */}
+                    {/* Speaker Icon */}
                     {isTypingComplete && (
                         <motion.button
                             initial={{ opacity: 0, scale: 0 }}
@@ -87,12 +88,10 @@ const Home = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={playName}
-                            className="p-2 ml-4 rounded-full bg-purple-100 dark:bg-purple-900/30 text-primary hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-all flex-shrink-0"
+                            className="p-2 ml-4 mt-7 rounded-full bg-purple-100 dark:bg-purple-900/30 text-primary hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-all flex-shrink-0"
                             title="Listen to pronunciation"
                         >
-                          <FaVolumeUp
-                              className={`w-6 h-6 ${isPlaying ? 'animate-pulse' : ''}`}
-                          />
+                          <FaVolumeUp className={`w-6 h-6 ${isPlaying ? 'animate-pulse' : ''}`} />
                         </motion.button>
                     )}
                   </div>
@@ -105,23 +104,27 @@ const Home = () => {
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
                   Full-stack developer with a growing interest in AI technologies. Experienced in building
-                  MERN stack applications, Redux state management, and Node.js boilerplates. Currently learning
-                  and implementing AI tools while maintaining a strong focus on testing and design patterns.
+                  MERN stack and SaaS applications, focusing on scalability, design patterns, and algorithms
+                  while following best practices. Expert in React, Node.js, AWS, SQL, and NoSQL databases.
+                  Skilled in taking leadership roles with a good attitude.
+                  {/*Full-stack developer with a growing interest in AI technologies. Experienced in building*/}
+                  {/*MERN stack applications, Redux state management, and Node.js boilerplates. Currently learning*/}
+                  {/*and implementing AI tools while maintaining a strong focus on testing and design patterns.*/}
                 </p>
               </div>
 
               {/* Contact Info */}
               <div className="flex flex-col space-y-3">
                 <motion.a
-                    whileHover={{ x: 5 }}
+                    whileHover={{x: 5}}
                     href="mailto:newumaalweerasinghe@gmail.com"
                     className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                 >
-                  <FaEnvelope className="text-primary" />
+                  <FaEnvelope className="text-primary"/>
                   <span>newumaalweerasinghe@gmail.com</span>
                 </motion.a>
                 <motion.div
-                    whileHover={{ x: 5 }}
+                    whileHover={{x: 5}}
                     className="flex items-center gap-3 text-gray-600 dark:text-gray-400"
                 >
                   <FaMapMarkerAlt className="text-primary" />

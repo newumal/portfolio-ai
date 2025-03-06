@@ -10,8 +10,8 @@ const Journey = () => {
       period: "Jun 2023 - Present",
       location: "Hybrid",
       type: "Full-time",
-      skills: ["React.js", "JavaScript", "Node.js", "AWS", "Cloud Architecture"],
-      description: "Leading Google Calendar Integration and sync implementation"
+      skills: ["React.js", "Node.js", "AWS", "JavaScript","Cloud Architecture", "AI"],
+      description: "Leading Gmail & Google Calendar Integrations"
     },
     {
       company: "Velaris",
@@ -19,7 +19,7 @@ const Journey = () => {
       period: "Jul 2022 - Jul 2023",
       location: "Sri Lanka",
       type: "Full-time",
-      skills: ["React Hooks", "Node.js", "Full Stack Development"],
+      skills: ["React.js", "Node.js", "Full Stack Development"],
       description: "Developed and maintained full-stack applications"
     },
     {
@@ -55,11 +55,11 @@ const Journey = () => {
     <section id="journey" className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">Professional Journey</h2>
-        
+
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-primary/20"></div>
-          
+
           {/* Experience items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -74,7 +74,7 @@ const Journey = () => {
               >
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full"></div>
-                
+
                 {/* Content */}
                 <div className="flex-1">
                   <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -83,10 +83,10 @@ const Journey = () => {
                       <FaBuilding className="text-primary" />
                       <h3 className="text-xl font-bold dark:text-white">{exp.company}</h3>
                     </div>
-                    
+
                     {/* Position */}
                     <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{exp.position}</h4>
-                    
+
                     {/* Period and Location */}
                     <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-4">
                       <span>{exp.period}</span>
@@ -95,10 +95,10 @@ const Journey = () => {
                       <span>•</span>
                       <span>{exp.type}</span>
                     </div>
-                    
+
                     {/* Description */}
                     <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
-                    
+
                     {/* Skills */}
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill, i) => (
@@ -112,7 +112,7 @@ const Journey = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Spacer for timeline alignment */}
                 <div className="flex-1 hidden md:block"></div>
               </motion.div>
