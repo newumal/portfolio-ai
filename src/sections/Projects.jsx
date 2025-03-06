@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaQuoteLeft } from 'react-icons/fa';
+import { FaQuoteLeft } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Projects = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const projects = [
     {
       title: "Velaris - Customer Success SaaS",
@@ -90,7 +93,7 @@ const Projects = () => {
   const recommendations = [
     {
       name: "Shayne Weerakoon",
-      role: "1st",
+      role: "Lead Software Engineer at Velaris",
       date: "November 11, 2024",
       relationship: "Shayne managed Newumal directly",
       content: `I hired Newumal as a full-stack engineer, and he quickly proved to be one of the finest professionals I've ever worked with. Newumal joined the team as a Software Engineer (SE), and I had the pleasure of mentoring him to Senior Software Engineer (SSE) in just two short years. Beyond his technical skills, Newumal is extremely hard-working and cooperative. He consistently goes the extra mile to complete his tasks, always with a smile on his face. Even during the busiest times, he never hesitates to assist others, displaying a level of patience and enthusiasm that is truly exemplary.
@@ -107,125 +110,150 @@ I am happy I got the chance to work with Newumal and have learned alot from him 
       content: `As a full-stack software engineer, Newumal consistently demonstrated a strong command of React, Node.js, and SQL, dynamodb stack. Their ability to tackle complex technical challenges and deliver high-quality solutions is truly impressive.
 
 Newumal's dedication to our projects and their commitment to driving results is commendable. They excel not only in technical skills but also in their communication and collaboration with the team. Newumal is known for their problem-solving abilities, attention to detail, and the enthusiasm they bring to every project.`
+    },
+    {
+      name: "Michael Robertson",
+      role: "Project Manager",
+      date: "August 3, 2023",
+      relationship: "Michael was a client of Newumal's",
+      content: `Working with Newumal on our ticket booking platform was a genuine pleasure. What sets him apart is not just his technical expertise, but his remarkable ability to understand business requirements and translate them into elegant technical solutions.
+
+When we encountered critical issues with our payment processing system, Newumal implemented a solution that not only fixed our immediate concerns but also improved the overall architecture. His foresight in designing our database structure has allowed us to scale efficiently.
+
+Newumal's communication skills deserve special mention - he consistently kept us informed, explained technical concepts clearly to non-technical stakeholders, and was always receptive to feedback. His commitment to quality resulted in a robust platform that continues to serve thousands of customers daily.`
     }
   ];
 
   return (
-    <>
-      <section id="projects" className="py-16 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
-          <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Featured Projects</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Showcasing my journey through various technologies and industries, from SaaS platforms to IoT solutions.
-          </p>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden h-full"
-              >
-                <div className="flex flex-col h-full">
-                  {/* Project Preview */}
-                  <div className="relative h-[200px] bg-gray-100 dark:bg-gray-800 p-6 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+      <>
+        <section id="projects" className="py-16 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
+            <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Featured Projects</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+              Showcasing my journey through various technologies and industries, from SaaS platforms to IoT solutions.
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
+                  <motion.div
+                      key={index}
+                      initial={{opacity: 0, y: 20}}
+                      whileInView={{opacity: 1, y: 0}}
+                      transition={{duration: 0.5}}
+                      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden h-full"
+                  >
+                    <div className="flex flex-col h-full">
+                      <div
+                          className="relative h-[200px] bg-gray-100 dark:bg-gray-800 p-6 flex items-center justify-center">
+                        <div className="text-center">
+                          <div
+                              className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
+                          </div>
+                          <div className="space-y-1">
+                            <h4 className="text-base font-semibold text-gray-900 dark:text-white">
+                              {project.role}
+                            </h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                              {project.period}
+                            </p>
+                            {project.achievements && (
+                                <p className="text-sm text-primary font-medium">
+                                  {project.achievements}
+                                </p>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                      <div className="space-y-1">
-                        <h4 className="text-base font-semibold text-gray-900 dark:text-white">
-                          {project.role}
-                        </h4>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {project.period}
+
+                      <div className="p-6 flex-1 flex flex-col">
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                            {project.title}
+                          </h3>
+                          <span className="text-sm text-primary">{project.company}</span>
+                        </div>
+
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                          {project.description}
                         </p>
-                        {project.achievements && (
-                          <p className="text-sm text-primary font-medium">
-                            {project.achievements}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Project Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                        {project.title}
-                      </h3>
-                      <span className="text-sm text-primary">{project.company}</span>
-                    </div>
-
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {project.technologies.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-2 py-1 text-xs bg-purple-50 dark:bg-purple-900/30 text-primary rounded-full"
-                        >
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                          {project.technologies.map((tech, i) => (
+                              <span
+                                  key={i}
+                                  className="px-2 py-1 text-xs bg-purple-50 dark:bg-purple-900/30 text-primary rounded-full"
+                              >
                           {tech}
                         </span>
-                      ))}
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                  </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Recommendations Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
-          <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Recommendations</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            What people say about my work and collaboration
-          </p>
+        <section className="py-16 bg-gray-50 dark:bg-gray-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
+            <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Recommendations</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+              What people say about my work and collaboration
+            </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {recommendations.map((recommendation, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8"
-              >
-                <FaQuoteLeft className="text-primary/20 text-4xl mb-4" />
-                <div className="space-y-4">
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line">
-                    {recommendation.content}
-                  </p>
-                  <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
-                      {recommendation.name}
-                    </h4>
-                    <p className="text-primary text-sm">{recommendation.role}</p>
-                    <div className="flex items-center gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400">
-                      <span>{recommendation.date}</span>
-                      <span>•</span>
-                      <span>{recommendation.relationship}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              {[currentSlide * 2, currentSlide * 2 + 1].map((index) => (
+                  recommendations[index] && (
+                      <motion.div
+                          key={index}
+                          initial={{opacity: 0}}
+                          animate={{opacity: 1}}
+                          transition={{duration: 0.5}}
+                          className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8"
+                      >
+                        <FaQuoteLeft className="text-primary/20 text-4xl mb-4"/>
+                        <div className="space-y-4">
+                          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line">
+                            {recommendations[index].content}
+                          </p>
+                          <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <h4 className="font-semibold text-gray-900 dark:text-white">
+                              {recommendations[index].name}
+                            </h4>
+                            <p className="text-primary text-sm">{recommendations[index].role}</p>
+                            <div className="flex items-center gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400">
+                              <span>{recommendations[index].date}</span>
+                              <span>•</span>
+                              <span>{recommendations[index].relationship}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                  )
+              ))}
+            </div>
+            <div className="flex justify-center gap-3 mt-8">
+              {Array.from({length: Math.ceil(recommendations.length / 2)}).map((_, index) => (
+                  <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          currentSlide === index
+                              ? 'bg-primary scale-100 shadow-md shadow-primary/30'
+                              : 'bg-gray-300 dark:bg-gray-600 scale-75 hover:scale-90'
+                      }`}
+                  />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+      </>
   );
 };
 
-export default Projects; 
+export default Projects;
