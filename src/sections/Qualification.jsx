@@ -5,14 +5,6 @@ const Qualification = () => {
   const qualifications = [
     {
       type: 'certification',
-      title: 'AWS Certified Solutions Architect - Associate',
-      institution: 'Amazon Web Services (AWS)',
-      period: '2024',
-      description: 'Certified in designing distributed systems and deploying applications on AWS infrastructure',
-      icon: <FaCertificate className="w-6 h-6" />
-    },
-    {
-      type: 'certification',
       title: 'Generative AI Fundamentals',
       institution: 'Coursera - DeepLearning.AI',
       period: '2024',
@@ -20,11 +12,19 @@ const Qualification = () => {
       icon: <FaCertificate className="w-6 h-6" />
     },
     {
+      type: 'certification',
+      title: 'AWS Certified Solutions Architect - Associate(Reading)',
+      institution: 'Amazon Web Services (AWS)',
+      period: '2024',
+      description: 'Certified in designing distributed systems and deploying applications on AWS infrastructure',
+      icon: <FaCertificate className="w-6 h-6" />
+    },
+    {
       type: 'education',
       title: 'Bachelor of Science in Computer Science',
-      institution: 'University of Colombo School of Computing',
-      period: '2019 - 2023',
-      description: 'Specialized in Software Engineering and Computer Science fundamentals',
+      institution: 'University of Colombo',
+      period: '2014 - 2018',
+      description: 'Specialized in Software Engineering and Computer Science fundamentals & Electronics',
       icon: <FaGraduationCap className="w-6 h-6" />
     }
   ];
