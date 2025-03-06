@@ -10,7 +10,7 @@ const About = () => {
     },
     {
       category: "Backend",
-      items: ["Node.js", "Express.js", "JWT Auth", "REST APIs", "MongoDB"],
+      items: ["Node.js", "Express.js", "JWT Auth", "REST APIs", "PHP", "Laravel", "Python"],
       icon: <FaNodeJs className="w-6 h-6 text-green-500" />
     },
     {
