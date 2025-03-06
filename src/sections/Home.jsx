@@ -110,34 +110,28 @@ const Home = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="flex flex-col space-y-2 sm:space-y-3 w-full">
+              <div className="flex flex-col space-y-2 sm:space-y-3">
                 <motion.a
                     whileHover={{x: 5}}
                     href="mailto:newumaalweerasinghe@gmail.com"
                     className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                 >
-                  <div className="w-full max-w-md mx-auto lg:mx-0 flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
-                    <FaEnvelope className="text-primary flex-shrink-0"/>
-                    <span className="break-all">newumaalweerasinghe@gmail.com</span>
-                  </div>
+                  <FaEnvelope className="text-primary"/>
+                  <span className="break-all">newumaalweerasinghe@gmail.com</span>
                 </motion.a>
                 <motion.div
                     whileHover={{x: 5}}
                     className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 dark:text-gray-400"
                 >
-                  <div className="w-full max-w-md mx-auto lg:mx-0 flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
-                    <FaMapMarkerAlt className="text-primary flex-shrink-0" />
-                    <span>Colombo, Sri Lanka</span>
-                  </div>
+                  <FaMapMarkerAlt className="text-primary" />
+                  <span>Colombo, Sri Lanka</span>
                 </motion.div>
                 <motion.div
                     whileHover={{ x: 5 }}
                     className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 dark:text-gray-400"
                 >
-                  <div className="w-full max-w-md mx-auto lg:mx-0 flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
-                    <FaPhone className="text-primary flex-shrink-0" />
-                    <span>+94 71 7349697</span>
-                  </div>
+                  <FaPhone className="text-primary" />
+                  <span>+94 71 7349697</span>
                 </motion.div>
               </div>
 

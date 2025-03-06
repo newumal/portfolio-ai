@@ -105,7 +105,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-lg border-t border-gray-200 md:hidden"
+            className="absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-t border-gray-200 dark:border-gray-700 md:hidden"
           >
             <div className="py-3 px-4 space-y-3">
               {navItems.map((item) => (
@@ -117,12 +117,28 @@ const Navbar = () => {
                   offset={-80}
                   duration={500}
                   onClick={() => setIsOpen(false)}
-                  className="block py-2 text-gray-600 hover:text-primary cursor-pointer transition-colors"
+                  className="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary cursor-pointer transition-colors"
                   activeClass="text-primary"
                 >
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Theme Toggle Button for Mobile */}
+              <button
+                onClick={() => {
+                  toggleTheme();
+                  setIsOpen(false);
+                }}
+                className="w-full flex items-center justify-center py-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+                aria-label="Toggle theme"
+              >
+                {isDarkMode ? (
+                  <SunIcon className="h-6 w-6" />
+                ) : (
+                  <MoonIcon className="h-6 w-6" />
+                )}
+              </button>
             </div>
           </motion.div>
         )}
