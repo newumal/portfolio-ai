@@ -32,7 +32,7 @@ export const hero = {
   kicker: 'Associate Tech Lead · Full-Stack Engineer',
   headline: 'I build products and lead teams with AI.',
   subheadline:
-    'Full-stack engineer and team lead. I ship fast with AI, keep the engineering judgment human, and help teams do the same.',
+    'Full-stack engineer and team lead. I ship outcomes, not just code — scalable, cost-aware systems that create real value for users and the business, accelerated by AI.',
   primaryCta: { label: 'View my work', to: 'projects' },
   secondaryCta: { label: 'Read my story', to: 'about' },
   // Right-hand sidebar cards, echoing the reference layout
@@ -44,7 +44,7 @@ export const hero = {
     },
     focus: {
       label: 'What I focus on',
-      body: 'Turning business goals into scalable, high-quality delivery — and lifting the team along the way.',
+      body: 'Outcomes over output — turning business goals into scalable, cost-aware systems that create real value for users and the business.',
     },
   },
 };
@@ -54,6 +54,7 @@ export const about = {
   heading: 'Engineer turned engineering leader.',
   paragraphs: [
     "I'm an Associate Tech Lead and Team Lead at Velaris, where I lead a cross-functional team building a B2B SaaS platform on React, Node, and AWS. Over the last few years I've grown from senior engineer into a leadership role — owning major integrations, driving performance and stability, and changing how my team prioritizes and delivers work.",
+    "I think like an owner, not just an engineer — I care about the outcome for the user and the customer, not just closing a ticket. When I design a system I'm weighing scalability, cost, market fit, and which emerging technologies are genuinely worth adopting.",
     'My edge is AI. I adopted it early, used it to ship features faster and with fewer bugs, and then brought my team up to the same level with a shared framework and custom agents grounded in our product and domain. I believe in AI-assisted, human-owned engineering: use AI to move faster, but keep the decisions with the people.',
   ],
   stats: [
@@ -68,20 +69,30 @@ export const philosophy = {
   kicker: 'How I work',
   heading: 'Engineering & leadership philosophy.',
   intro:
-    'Three principles shape how I lead and how I build. They are the difference between a portfolio of features and a track record of impact.',
+    'Five principles shape how I think, build, and lead — the difference between a list of features and a track record of real outcomes.',
   cards: [
     {
       no: '01',
+      title: 'Outcomes over output.',
+      body: 'I optimize for value delivered to users and customers — real outcomes, not tickets closed. Every piece of work should move a metric that matters, not just clear a backlog.',
+    },
+    {
+      no: '02',
+      title: 'Design for scale, cost, and the market.',
+      body: 'I architect with scalability and cost-efficiency in mind, and choose technologies for the problem and the market — adopting new and emerging tech deliberately, where it creates a real edge.',
+    },
+    {
+      no: '03',
       title: 'AI-assisted, human-owned.',
       body: "I use AI across the whole engineering lifecycle — design, brainstorming, trade-off discussions, and delivery — not just coding. But every decision stays human-owned. I built custom agents grounded in our product patterns and business domain so the output is high-quality, not hallucinated.",
     },
     {
-      no: '02',
+      no: '04',
       title: 'Fix the root cause, not the symptom.',
       body: 'I led a shift from constant firefighting to permanent fixes — analyzing recurring issues, writing root-cause reports with real effort and timelines, and aligning product and engineering to fix the right things. It gave the team its capacity back, and other teams adopted the approach.',
     },
     {
-      no: '03',
+      no: '05',
       title: 'Lead by lifting others.',
       body: 'Leadership is making the team faster, not just myself. I mentor engineers, run enablement sessions, step up under pressure, and care about a healthy, high-standards engineering culture.',
     },

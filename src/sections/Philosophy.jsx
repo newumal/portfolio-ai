@@ -11,7 +11,7 @@ const Philosophy = () => {
       intro={philosophy.intro}
       className="bg-panel/40"
     >
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {philosophy.cards.map((card, i) => (
           <Reveal
             key={card.no}
