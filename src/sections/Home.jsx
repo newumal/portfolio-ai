@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
-import { FaArrowRight, FaChevronDown } from 'react-icons/fa';
+import { FaArrowRight, FaChevronDown, FaDownload } from 'react-icons/fa';
 import { hero, site } from '../data/content';
 import SocialLinks from '../components/SocialLinks';
 
@@ -41,7 +41,8 @@ const Home = () => {
           <motion.div {...rise(0)} className="md:col-span-6 lg:col-span-5">
             <span className="kicker">{hero.kicker}</span>
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-chalk drop-shadow-sm sm:text-5xl lg:text-[3.75rem]">
-              I&apos;m {site.shortName} —{' '}
+              I&apos;m {site.shortName},
+              <br />
               <span className="text-fog">{hero.headline}</span>
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-mist sm:text-lg">
@@ -68,6 +69,14 @@ const Home = () => {
               >
                 {hero.secondaryCta.label}
               </ScrollLink>
+              <a
+                href="/resume.pdf"
+                download="Newumal-Weerasinghe-Resume.pdf"
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/40 px-6 py-3 text-sm font-semibold text-chalk backdrop-blur-sm transition-colors hover:border-accent/60 hover:text-accent"
+              >
+                <FaDownload className="h-3.5 w-3.5" />
+                Resume
+              </a>
             </div>
 
             <div className="mt-10 hidden lg:block">

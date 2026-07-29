@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { FaBars, FaTimes, FaCode } from 'react-icons/fa';
+import { FaBars, FaTimes, FaCode, FaDownload } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
 import { nav, site } from '../data/content';
 
@@ -38,20 +38,36 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden items-center gap-8 md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
-              spy
-              smooth
-              offset={-90}
-              duration={500}
-              className="cursor-pointer text-sm font-medium text-fog transition-colors hover:text-chalk"
-              activeClass="!text-chalk"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {nav.map((item) =>
+            item.highlight ? (
+              <Link
+                key={item.name}
+                to={item.to}
+                spy
+                smooth
+                offset={-90}
+                duration={500}
+                className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 text-sm font-semibold text-accent transition-colors hover:border-accent hover:bg-accent/20"
+                activeClass="!border-accent !bg-accent/25"
+              >
+                <FaDownload className="h-3 w-3" />
+                {item.name}
+              </Link>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.to}
+                spy
+                smooth
+                offset={-90}
+                duration={500}
+                className="cursor-pointer text-sm font-medium text-fog transition-colors hover:text-chalk"
+                activeClass="!text-chalk"
+              >
+                {item.name}
+              </Link>
+            )
+          )}
           <Link
             to="contact"
             smooth
@@ -85,21 +101,38 @@ const Navbar = () => {
             className="mx-4 mt-3 overflow-hidden rounded-2xl border border-line bg-panel/95 backdrop-blur-lg md:hidden"
           >
             <div className="flex flex-col p-3">
-              {nav.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.to}
-                  spy
-                  smooth
-                  offset={-90}
-                  duration={500}
-                  onClick={() => setIsOpen(false)}
-                  className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium text-fog transition-colors hover:bg-panel2 hover:text-chalk"
-                  activeClass="!text-chalk"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {nav.map((item) =>
+                item.highlight ? (
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    spy
+                    smooth
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setIsOpen(false)}
+                    className="mt-1 inline-flex cursor-pointer items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                    activeClass="!border-accent !bg-accent/25"
+                  >
+                    <FaDownload className="h-3.5 w-3.5" />
+                    {item.name}
+                  </Link>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    spy
+                    smooth
+                    offset={-90}
+                    duration={500}
+                    onClick={() => setIsOpen(false)}
+                    className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium text-fog transition-colors hover:bg-panel2 hover:text-chalk"
+                    activeClass="!text-chalk"
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
             </div>
           </motion.div>
         )}

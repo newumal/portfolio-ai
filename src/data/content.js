@@ -4,7 +4,7 @@
 export const site = {
   name: 'Newumal Weerasinghe',
   shortName: 'Newumal',
-  role: 'Associate Tech Lead & Team Lead',
+  role: 'Team Lead & Full-Stack Engineer',
   email: 'newumaalweerasinghe@gmail.com',
   location: 'Colombo, Sri Lanka',
   phone: '+94 71 7349697',
@@ -15,6 +15,7 @@ export const socials = {
   github: 'https://github.com/newumal',
   youtube: 'https://youtube.com/@buildwithnewumal',
   youtubeHandle: '@buildwithnewumal',
+  medium: 'https://medium.com/@newumaalweerasinghe',
   email: 'mailto:newumaalweerasinghe@gmail.com',
 };
 
@@ -25,12 +26,13 @@ export const nav = [
   { name: 'Journey', to: 'journey' },
   { name: 'Skills', to: 'skills' },
   { name: 'Work', to: 'projects' },
+  { name: 'Resume', to: 'resume', highlight: true },
   { name: 'Contact', to: 'contact' },
 ];
 
 export const hero = {
-  kicker: 'Associate Tech Lead · Full-Stack Engineer',
-  headline: 'I build products and lead teams with AI.',
+  kicker: 'Team Lead · Full-Stack Engineer',
+  headline: 'I lead teams and build with AI — judgment stays human.',
   subheadline:
     'Full-stack engineer and team lead. I ship outcomes, not just code — scalable, cost-aware systems that create real value for users and the business, accelerated by AI.',
   primaryCta: { label: 'View my work', to: 'projects' },
@@ -44,7 +46,7 @@ export const hero = {
     },
     focus: {
       label: 'What I focus on',
-      body: 'Outcomes over output — turning business goals into scalable, cost-aware systems that create real value for users and the business.',
+      body: 'Outcomes over output — turning goals into scalable, cost-aware systems that create real value.',
     },
   },
 };
@@ -53,15 +55,15 @@ export const about = {
   kicker: 'About me',
   heading: 'Engineer turned engineering leader.',
   paragraphs: [
-    "I'm an Associate Tech Lead and Team Lead at Velaris, where I lead a cross-functional team building a B2B SaaS platform on React, Node, and AWS. Over the last few years I've grown from senior engineer into a leadership role — owning major integrations, driving performance and stability, and changing how my team prioritizes and delivers work.",
-    "I think like an owner, not just an engineer — I care about the outcome for the user and the customer, not just closing a ticket. When I design a system I'm weighing scalability, cost, market fit, and which emerging technologies are genuinely worth adopting.",
-    'My edge is AI. I adopted it early, used it to ship features faster and with fewer bugs, and then brought my team up to the same level with a shared framework and custom agents grounded in our product and domain. I believe in AI-assisted, human-owned engineering: use AI to move faster, but keep the decisions with the people.',
+    "I'm a Team Lead at Velaris, where I lead a cross-functional team building a B2B SaaS platform on React, Node, and AWS. Over the last few years I've grown from senior engineer into a leadership role — owning major integrations, driving performance and stability, and changing how my team prioritizes and delivers work.",
+    "I think like an owner, not just an engineer. I care about the outcome for the user and the customer, not just closing a ticket. When I design a system I'm weighing scalability, cost, market fit, and which new technologies are genuinely worth adopting — and I use AI to move faster while keeping the engineering decisions human.",
+    'My edge is AI. I adopted it early, used it to ship features faster and with fewer bugs, and then brought my team up to the same level with a shared framework and custom agents grounded in our product and domain. AI-assisted, human-owned: move faster, keep judgment with the people.',
   ],
   stats: [
     { value: '7+ yrs', label: 'Building & leading SaaS products' },
     { value: '2+ yrs', label: 'Hands-on across the AI lifecycle' },
-    { value: '5 / 3', label: 'Salesforce components shipped vs. planned' },
-    { value: '0', label: 'Post-release bugs on key launches' },
+    { value: '1 day', label: 'Idea → working AI Copilot demo' },
+    { value: '0 bugs', label: 'Key launches under tight deadlines' },
   ],
 };
 
@@ -174,7 +176,7 @@ export const skills = {
     },
     {
       title: 'Leadership',
-      items: ['Team leadership', 'Mentoring', 'System design', 'Agile delivery', 'Product thinking'],
+      items: ['Team leadership', 'Mentoring', 'System design', 'Agile delivery', 'Product thinking', 'Technical writing'],
     },
   ],
 };
@@ -282,9 +284,23 @@ export const qualification = {
   ],
 };
 
+export const resume = {
+  kicker: 'Resume',
+  heading: 'Curriculum vitae.',
+  blurb:
+    'Same story as the site, in one page — view it here or download the PDF.',
+  file: '/resume.pdf',
+  fileName: 'Newumal-Weerasinghe-Resume.pdf',
+  downloadLabel: 'Download PDF',
+  openLabel: 'Open in new tab',
+  previewTitle: 'Resume PDF preview',
+  mobileHint:
+    'Inline preview works best on desktop. On mobile, open or download the PDF instead.',
+};
+
 export const contact = {
   kicker: 'Contact',
   heading: "Let's talk.",
   blurb:
-    'Open to Associate Tech Lead / Team Lead roles and interesting engineering conversations.',
+    'Open to Team Lead roles and interesting engineering conversations.',
 };

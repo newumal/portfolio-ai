@@ -1,10 +1,11 @@
-import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaYoutube, FaMediumM, FaEnvelope } from 'react-icons/fa';
 import { socials } from '../data/content';
 
 const links = [
   { icon: FaLinkedin, href: socials.linkedin, label: 'LinkedIn' },
   { icon: FaGithub, href: socials.github, label: 'GitHub' },
   { icon: FaYoutube, href: socials.youtube, label: 'YouTube' },
+  { icon: FaMediumM, href: socials.medium, label: 'Medium' },
   { icon: FaEnvelope, href: socials.email, label: 'Email' },
 ];
 

@@ -7,6 +7,7 @@ import Journey from './sections/Journey';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Qualification from './sections/Qualification';
+import Resume from './sections/Resume';
 import Contact from './sections/Contact';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Skills />
         <Projects />
         <Qualification />
+        <Resume />
         <Contact />
       </main>
       <Footer />
