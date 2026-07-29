@@ -1,196 +1,121 @@
-import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
+import Section from '../components/Section';
+import Reveal from '../components/Reveal';
+import SocialLinks from '../components/SocialLinks';
+import { contact, site } from '../data/content';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleChange = (e) =>
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    // For now, we'll just log the data
-    console.log('Form submitted:', formData);
+    // No backend yet — open the user's mail client with a prefilled message.
+    const subject = encodeURIComponent(`Portfolio enquiry from ${formData.name || 'someone'}`);
+    const body = encodeURIComponent(`${formData.message}\n\n— ${formData.name} (${formData.email})`);
+    window.location.href = `${site.email}?subject=${subject}&body=${body}`;
+    setSent(true);
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const contactInfo = [
-    {
-      icon: <FaEnvelope className="w-6 h-6" />,
-      label: 'Email',
-      value: 'newumaalweerasinghe@gmail.com',
-      href: 'mailto:newumaalweerasinghe@gmail.com'
-    },
-    {
-      icon: <FaPhone className="w-6 h-6" />,
-      label: 'Phone',
-      value: '+94 71 7349697',
-      href: 'tel:+94717349697'
-    },
-    {
-      icon: <FaMapMarkerAlt className="w-6 h-6" />,
-      label: 'Location',
-      value: 'Colombo, Sri Lanka'
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <FaGithub className="w-6 h-6" />,
-      href: 'https://github.com/newumal',
-      label: 'GitHub'
-    },
-    {
-      icon: <FaLinkedin className="w-6 h-6" />,
-      href: 'https://www.linkedin.com/in/newumal/',
-      label: 'LinkedIn'
-    }
-  ];
+  const inputClass =
+    'w-full rounded-xl border border-line bg-panel px-4 py-3 text-sm text-chalk placeholder:text-fog/60 transition-colors focus:border-accent focus:outline-none';
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Contact Me
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            Let's connect and discuss how we can work together
-          </p>
-        </motion.div>
+    <Section id="contact" kicker={contact.kicker} heading={contact.heading}>
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        {/* Left — invitation + details */}
+        <Reveal className="lg:col-span-5" delay={0.05}>
+          <p className="text-base leading-relaxed text-fog sm:text-lg">{contact.blurb}</p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 space-y-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="text-primary mt-1">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">
-                      {info.label}
-                    </h3>
-                    {info.href ? (
-                      <a 
-                        href={info.href}
-                        className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {info.value}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
+          <div className="mt-8 space-y-4">
+            <a
+              href={site.email ? `mailto:${site.email}` : undefined}
+              className="flex items-center gap-3 text-sm text-fog transition-colors hover:text-accent"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-accent">
+                <FaEnvelope className="h-4 w-4" />
+              </span>
+              {site.email}
+            </a>
+            <div className="flex items-center gap-3 text-sm text-fog">
+              <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-accent">
+                <FaMapMarkerAlt className="h-4 w-4" />
+              </span>
+              {site.location}
             </div>
+          </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                >
-                  {link.icon}
-                  <span>{link.label}</span>
-                </a>
-              ))}
-            </div>
-          </motion.div>
+          <div className="mt-10">
+            <span className="kicker">Elsewhere</span>
+            <SocialLinks className="mt-4" />
+          </div>
+        </Reveal>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Right — form */}
+        <Reveal className="lg:col-span-7" delay={0.15}>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-chalk">
                   Name
                 </label>
                 <input
-                  type="text"
                   id="name"
                   name="name"
+                  type="text"
+                  required
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
                   placeholder="Your name"
+                  className={inputClass}
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-chalk">
                   Email
                 </label>
                 <input
-                  type="email"
                   id="email"
                   name="email"
+                  type="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                  placeholder="your.email@example.com"
+                  placeholder="you@example.com"
+                  className={inputClass}
                 />
               </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
-                  placeholder="Your message..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium"
-              >
-                Send Message
-              </button>
-            </form>
-          </motion.div>
-        </div>
+            </div>
+            <div>
+              <label htmlFor="message" className="mb-2 block text-sm font-medium text-chalk">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="What would you like to talk about?"
+                className={`${inputClass} resize-none`}
+              />
+            </div>
+            <button
+              type="submit"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-colors hover:bg-accent-hover"
+            >
+              {sent ? 'Opening your mail app…' : 'Send message'}
+              <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+            </button>
+          </form>
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 };
 

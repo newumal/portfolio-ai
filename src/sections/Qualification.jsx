@@ -1,86 +1,49 @@
-import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCertificate } from 'react-icons/fa';
+import Section from '../components/Section';
+import Reveal from '../components/Reveal';
+import { FaGraduationCap, FaTrophy } from 'react-icons/fa';
+import { qualification } from '../data/content';
 
 const Qualification = () => {
-  const qualifications = [
-    {
-      type: 'certification',
-      title: 'Generative AI Fundamentals',
-      institution: 'Coursera - DeepLearning.AI',
-      period: '2025',
-      description: 'Completed comprehensive training in Large Language Models, Prompt Engineering, and Generative AI applications',
-      icon: <FaCertificate className="w-6 h-6" />
-    },
-    {
-      type: 'certification',
-      title: 'AWS Certified Solutions Architect - Associate(Reading)',
-      institution: 'Amazon Web Services (AWS)',
-      period: '2025',
-      description: 'Designing distributed systems and deploying applications on AWS infrastructure',
-      icon: <FaCertificate className="w-6 h-6" />
-    },
-    {
-      type: 'education',
-      title: 'Bachelor of Science in Computer Science',
-      institution: 'University of Colombo',
-      period: '2014 - 2018',
-      description: 'Specialized in Software Engineering and Computer Science fundamentals & Electronics',
-      icon: <FaGraduationCap className="w-6 h-6" />
-    }
-  ];
-
   return (
-    <section id="qualification" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Qualification
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            Education and Professional Certifications
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {qualifications.map((qual, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6"
-            >
-              <div className="flex items-start gap-4">
-                <div className="text-primary">
-                  {qual.icon}
-                </div>
+    <Section id="qualification" kicker={qualification.kicker} heading={qualification.heading}>
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        {/* Education & certs */}
+        <Reveal className="lg:col-span-7" delay={0.05}>
+          <h3 className="kicker !text-chalk before:bg-accent">
+            <FaGraduationCap className="h-4 w-4 text-accent" /> Education & certifications
+          </h3>
+          <ul className="mt-6 space-y-4">
+            {qualification.education.map((item) => (
+              <li
+                key={item.title}
+                className="flex items-start justify-between gap-4 rounded-xl border border-line bg-panel p-5"
+              >
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    {qual.title}
-                  </h3>
-                  <p className="text-primary font-medium">
-                    {qual.institution}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {qual.period}
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 mt-2">
-                    {qual.description}
-                  </p>
+                  <p className="font-display font-semibold text-chalk">{item.title}</p>
+                  <p className="mt-1 text-sm text-fog">{item.org}</p>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                <span className="shrink-0 text-sm text-fog">{item.period}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        {/* Achievements */}
+        <Reveal className="lg:col-span-5" delay={0.15}>
+          <h3 className="kicker !text-chalk before:bg-accent">
+            <FaTrophy className="h-4 w-4 text-accent" /> Recognition
+          </h3>
+          <ul className="mt-6 space-y-4">
+            {qualification.achievements.map((item, i) => (
+              <li key={i} className="flex gap-3 text-sm leading-relaxed text-fog">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 };
 

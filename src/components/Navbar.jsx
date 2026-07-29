@@ -1,148 +1,109 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
+import { FaBars, FaTimes, FaCode } from 'react-icons/fa';
+import { AnimatePresence, motion } from 'framer-motion';
+import { nav, site } from '../data/content';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'about' },
-    { name: 'Journey', to: 'journey' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Qualification', to: 'qualification' },
-    { name: 'Contact', to: 'contact' },
-  ];
-
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'py-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg'
-          : 'py-6 bg-transparent'
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'border-b border-line bg-ink/80 py-3 backdrop-blur-lg'
+          : 'border-b border-transparent bg-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <Link
-            to="home"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className="text-xl font-bold cursor-pointer group"
-          >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-primary">
-              Newumal
-            </span>
-            <span className="text-gray-600 dark:text-gray-300">
-              .dev
-            </span>
-          </Link>
+      <div className="mx-auto flex max-w-editorial items-center justify-between px-6 sm:px-8">
+        <Link
+          to="home"
+          smooth
+          duration={500}
+          className="group flex cursor-pointer items-center gap-2 font-display text-lg font-bold tracking-tight text-chalk"
+        >
+          <span className="grid h-8 w-8 place-items-center rounded-md bg-accent/15 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+            <FaCode className="h-4 w-4" />
+          </span>
+          {site.shortName}
+          <span className="text-accent">.</span>
+        </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                className="text-gray-600 dark:text-gray-300 hover:text-primary cursor-pointer transition-colors relative group"
-                activeClass="text-primary"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle theme"
+        {/* Desktop */}
+        <div className="hidden items-center gap-8 md:flex">
+          {nav.map((item) => (
+            <Link
+              key={item.name}
+              to={item.to}
+              spy
+              smooth
+              offset={-90}
+              duration={500}
+              className="cursor-pointer text-sm font-medium text-fog transition-colors hover:text-chalk"
+              activeClass="!text-chalk"
             >
-              {isDarkMode ? (
-                <SunIcon className="h-6 w-6" />
-              ) : (
-                <MoonIcon className="h-6 w-6" />
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-primary hover:bg-gray-100/50 transition-colors"
-            aria-label="Toggle menu"
+              {item.name}
+            </Link>
+          ))}
+          <Link
+            to="contact"
+            smooth
+            offset={-90}
+            duration={500}
+            className="cursor-pointer rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
           >
-            {isOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
-              <Bars3Icon className="h-6 w-6" />
-            )}
-          </button>
+            Get in touch
+          </Link>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setIsOpen((v) => !v)}
+          className="p-2 text-chalk md:hidden"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-t border-gray-200 dark:border-gray-700 md:hidden"
+            className="mx-4 mt-3 overflow-hidden rounded-2xl border border-line bg-panel/95 backdrop-blur-lg md:hidden"
           >
-            <div className="py-3 px-4 space-y-3">
-              {navItems.map((item) => (
+            <div className="flex flex-col p-3">
+              {nav.map((item) => (
                 <Link
                   key={item.name}
                   to={item.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
+                  spy
+                  smooth
+                  offset={-90}
                   duration={500}
                   onClick={() => setIsOpen(false)}
-                  className="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary cursor-pointer transition-colors"
-                  activeClass="text-primary"
+                  className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium text-fog transition-colors hover:bg-panel2 hover:text-chalk"
+                  activeClass="!text-chalk"
                 >
                   {item.name}
                 </Link>
               ))}
-              
-              {/* Theme Toggle Button for Mobile */}
-              <button
-                onClick={() => {
-                  toggleTheme();
-                  setIsOpen(false);
-                }}
-                className="w-full flex items-center justify-center py-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-                aria-label="Toggle theme"
-              >
-                {isDarkMode ? (
-                  <SunIcon className="h-6 w-6" />
-                ) : (
-                  <MoonIcon className="h-6 w-6" />
-                )}
-              </button>
             </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </nav>
   );
 };
