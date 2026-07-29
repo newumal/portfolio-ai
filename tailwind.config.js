@@ -11,6 +11,7 @@ export default {
         panel2: '#1A1B1F', // hover / nested surface
         line: '#2A2B30', // hairline dividers & borders
         fog: '#9AA0A6', // muted secondary text
+        mist: '#C7CCD3', // brighter secondary — for text over imagery
         chalk: '#F5F5F7', // primary near-white text
         accent: {
           DEFAULT: '#2E5BFF', // electric blue — used sparingly

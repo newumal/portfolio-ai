@@ -27,9 +27,9 @@ const Home = () => {
         />
         {/* Reading scrims — dark gutters left & right, fade top & bottom,
             so the person stays lit in the centre while text stays legible. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-18% via-ink/55 via-48% to-transparent to-80%" />
-        <div className="absolute inset-0 bg-gradient-to-l from-ink from-8% via-ink/55 via-30% to-transparent to-58%" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink from-10% via-transparent to-ink/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink from-15% via-ink/45 via-40% to-transparent to-62%" />
+        <div className="absolute inset-0 bg-gradient-to-l from-ink from-8% via-ink/45 via-27% to-transparent to-50%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink from-8% via-transparent to-ink/60" />
         {/* extra veil on small screens where columns overlap the photo */}
         <div className="absolute inset-0 bg-ink/40 md:bg-transparent" />
       </div>
@@ -44,7 +44,7 @@ const Home = () => {
               I&apos;m {site.shortName} —{' '}
               <span className="text-fog">{hero.headline}</span>
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-fog sm:text-lg">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-mist sm:text-lg">
               {hero.subheadline}
             </p>
 
@@ -95,7 +95,7 @@ const Home = () => {
                 <h3 className="mt-4 font-display text-lg font-semibold text-chalk">
                   {hero.sidebar.now.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-fog">
+                <p className="mt-2 text-sm leading-relaxed text-mist">
                   {hero.sidebar.now.body}
                 </p>
                 <ScrollLink
@@ -111,7 +111,7 @@ const Home = () => {
 
               <div className="hairline border-t pt-8">
                 <span className="kicker">{hero.sidebar.focus.label}</span>
-                <p className="mt-4 text-sm leading-relaxed text-fog">
+                <p className="mt-4 text-sm leading-relaxed text-mist">
                   {hero.sidebar.focus.body}
                 </p>
               </div>
