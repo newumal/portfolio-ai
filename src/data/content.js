@@ -175,10 +175,10 @@ export const projects = {
   items: [
     {
       title: 'AI Copilot & Canvas',
-      what: 'Natural-language charts and interactive dashboards inside the product.',
-      did: 'Built Copilot chart/visualization generation (line, pie, bar, KPI) from plain-language queries and interactive Canvas dashboards; improved Copilot context for richer questions.',
-      outcome: 'A flagship AI surface that lets users explore their data by simply asking.',
-      tags: ['LLMs', 'RAG', 'React', 'Node'],
+      what: 'Natural-language dashboard widgets — ask in plain English, get live charts on an interactive Canvas.',
+      did: 'Led a fast R&D spike that turns a single prompt — e.g. "top 5 accounts by MRR, a health-status pie, total MRR as a KPI, and a 6-month MRR trend" — into a full dashboard of bar, pie, KPI and line widgets on an interactive Canvas; improved Copilot context so users can ask richer questions.',
+      outcome: 'Idea to a working demo in about a day — recognized by company leadership as a step-change in AI-driven delivery speed.',
+      tags: ['LLMs', 'RAG', 'Canvas', 'React'],
     },
     {
       title: 'AI meeting intelligence',
@@ -209,6 +209,14 @@ export const projects = {
       tags: ['Performance', 'Cost', 'AWS'],
     },
   ],
+};
+
+export const spotlight = {
+  quote:
+    'This is huge — how fast he was able to move really shows the true power of AI once utilised best.',
+  attribution: 'Company leadership, Velaris',
+  context:
+    'On a rapid R&D spike that turned the Copilot into natural-language dashboard widgets — from idea to a working demo in a day.',
 };
 
 export const recommendations = {

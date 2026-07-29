@@ -1,7 +1,7 @@
 import Section from '../components/Section';
 import Reveal from '../components/Reveal';
 import { FaQuoteLeft } from 'react-icons/fa';
-import { projects, recommendations } from '../data/content';
+import { projects, recommendations, spotlight } from '../data/content';
 
 const Projects = () => {
   return (
@@ -50,6 +50,25 @@ const Projects = () => {
             </Reveal>
           ))}
         </div>
+
+        {/* Recognition spotlight — internal validation of the Copilot R&D */}
+        <Reveal
+          delay={0.1}
+          className="relative mt-14 overflow-hidden rounded-3xl border border-accent/30 bg-accent/[0.06] p-8 sm:p-12"
+        >
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-6 -top-8 select-none font-display text-[9rem] leading-none text-accent/10"
+          >
+            &ldquo;
+          </div>
+          <span className="kicker">Recognition</span>
+          <blockquote className="relative mt-5 max-w-3xl font-display text-xl font-semibold leading-snug text-chalk sm:text-2xl">
+            {spotlight.quote}
+          </blockquote>
+          <p className="mt-5 text-sm font-semibold text-accent">— {spotlight.attribution}</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog">{spotlight.context}</p>
+        </Reveal>
       </Section>
 
       <Section
