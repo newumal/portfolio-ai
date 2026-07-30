@@ -168,7 +168,7 @@ export const skills = {
     },
     {
       title: 'Identity & Auth',
-      items: ['OAuth 2.0', 'Google & Azure app verification', 'SSO', 'Token management'],
+      items: ['OAuth 2.0', 'JWT', 'Google & Azure app verification', 'SSO', 'Token management'],
     },
     {
       title: 'AI Engineering',
@@ -251,8 +251,8 @@ export const recommendations = {
     {
       quote:
         'What sets Newumal apart is not just his technical expertise, but his ability to understand business requirements and translate them into elegant technical solutions. His foresight in designing our database structure has let us scale efficiently.',
-      name: 'Michael Robertson',
-      title: 'Project Manager (Client)',
+      name: 'Yasintha Jayarathne',
+      title: 'Senior Product Owner, Velaris',
     },
   ],
 };
