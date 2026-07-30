@@ -32,9 +32,9 @@ export const nav = [
 
 export const hero = {
   kicker: 'Team Lead · Full-Stack Engineer',
-  headline: 'I lead teams and build with AI — judgment stays human.',
+  headline: 'I lead teams and build with AI. Judgment stays human.',
   subheadline:
-    'Full-stack engineer and team lead. I ship outcomes, not just code — scalable, cost-aware systems that create real value for users and the business, accelerated by AI.',
+    'Full-stack engineer and team lead. I ship outcomes, not just code: scalable, cost-aware systems that create real value for users and the business, accelerated by AI.',
   primaryCta: { label: 'View my work', to: 'projects' },
   secondaryCta: { label: 'Read my story', to: 'about' },
   // Right-hand sidebar cards, echoing the reference layout
@@ -46,7 +46,7 @@ export const hero = {
     },
     focus: {
       label: 'What I focus on',
-      body: 'Outcomes over output — turning goals into scalable, cost-aware systems that create real value.',
+      body: 'Outcomes over output: turning goals into scalable, cost-aware systems that create real value.',
     },
   },
 };
@@ -55,8 +55,8 @@ export const about = {
   kicker: 'About me',
   heading: 'Engineer turned engineering leader.',
   paragraphs: [
-    "I'm a Team Lead at Velaris, where I lead a cross-functional team building a B2B SaaS platform on React, Node, and AWS. Over the last few years I've grown from senior engineer into a leadership role — owning major integrations, driving performance and stability, and changing how my team prioritizes and delivers work.",
-    "I think like an owner, not just an engineer. I care about the outcome for the user and the customer, not just closing a ticket. When I design a system I'm weighing scalability, cost, market fit, and which new technologies are genuinely worth adopting — and I use AI to move faster while keeping the engineering decisions human.",
+    "I'm a Team Lead at Velaris, where I lead a cross-functional team building a B2B SaaS platform on React, Node, and AWS. Over the last few years I've grown from senior engineer into a leadership role: owning major integrations, driving performance and stability, and changing how my team prioritizes and delivers work.",
+    "I think like an owner, not just an engineer. I care about the outcome for the user and the customer, not just closing a ticket. When I design a system I'm weighing scalability, cost, market fit, and which new technologies are genuinely worth adopting. And I use AI to move faster while keeping the engineering decisions human.",
     'My edge is AI. I adopted it early, used it to ship features faster and with fewer bugs, and then brought my team up to the same level with a shared framework and custom agents grounded in our product and domain. AI-assisted, human-owned: move faster, keep judgment with the people.',
   ],
   stats: [
@@ -71,27 +71,27 @@ export const philosophy = {
   kicker: 'How I work',
   heading: 'Engineering & leadership philosophy.',
   intro:
-    'Five principles shape how I think, build, and lead — the difference between a list of features and a track record of real outcomes.',
+    'Five principles shape how I think, build, and lead. That is the difference between a list of features and a track record of real outcomes.',
   cards: [
     {
       no: '01',
       title: 'Outcomes over output.',
-      body: 'I optimize for value delivered to users and customers — real outcomes, not tickets closed. Every piece of work should move a metric that matters, not just clear a backlog.',
+      body: 'I optimize for value delivered to users and customers: real outcomes, not tickets closed. Every piece of work should move a metric that matters, not just clear a backlog.',
     },
     {
       no: '02',
       title: 'Design for scale, cost, and the market.',
-      body: 'I architect with scalability and cost-efficiency in mind, and choose technologies for the problem and the market — adopting new and emerging tech deliberately, where it creates a real edge.',
+      body: 'I architect with scalability and cost-efficiency in mind, and choose technologies for the problem and the market, adopting new and emerging tech deliberately where it creates a real edge.',
     },
     {
       no: '03',
       title: 'AI-assisted, human-owned.',
-      body: "I use AI across the whole engineering lifecycle — design, brainstorming, trade-off discussions, and delivery — not just coding. But every decision stays human-owned. I built custom agents grounded in our product patterns and business domain so the output is high-quality, not hallucinated.",
+      body: 'I use AI across the whole engineering lifecycle: design, brainstorming, trade-off discussions, and delivery, not just coding. But every decision stays human-owned. I built custom agents grounded in our product patterns and business domain so the output is high-quality, not hallucinated.',
     },
     {
       no: '04',
       title: 'Fix the root cause, not the symptom.',
-      body: 'I led a shift from constant firefighting to permanent fixes — analyzing recurring issues, writing root-cause reports with real effort and timelines, and aligning product and engineering to fix the right things. It gave the team its capacity back, and other teams adopted the approach.',
+      body: 'I led a shift from constant firefighting to permanent fixes: analyzing recurring issues, writing root-cause reports with real effort and timelines, and aligning product and engineering to fix the right things. It gave the team its capacity back, and other teams adopted the approach.',
     },
     {
       no: '05',
@@ -106,7 +106,7 @@ export const journey = {
   heading: 'Growth, ownership, and impact.',
   items: [
     {
-      period: '2026 — Present',
+      period: '2026 – Present',
       role: 'Associate Tech Lead & Team Lead',
       org: 'Velaris',
       summary:
@@ -114,7 +114,7 @@ export const journey = {
       tags: ['Leadership', 'AI adoption', 'System design'],
     },
     {
-      period: '2022 — 2026',
+      period: '2022 – 2026',
       role: 'Senior Software Engineer',
       org: 'Velaris',
       summary:
@@ -122,14 +122,14 @@ export const journey = {
       tags: ['React', 'Node/NestJS', 'AWS', 'LLMs / RAG'],
     },
     {
-      period: '2021 — 2022',
+      period: '2021 – 2022',
       role: 'Software Engineer',
       org: 'Sezenta',
       summary: 'React/Node web and mobile apps, REST APIs, and AWS.',
       tags: ['React Native', 'Node', 'MongoDB'],
     },
     {
-      period: '2019 — 2021',
+      period: '2019 – 2021',
       role: 'Development Engineer & Co-Founder',
       org: 'STEM Labs',
       summary:
@@ -137,7 +137,7 @@ export const journey = {
       tags: ['IoT', 'Product', 'Teaching'],
     },
     {
-      period: '2017 — 2019',
+      period: '2017 – 2019',
       role: 'Associate Software Engineer',
       org: 'Effective Solutions',
       summary: 'Symfony platforms, e-commerce, and IoT (Arduino / MQTT / Node-RED).',
@@ -184,13 +184,13 @@ export const skills = {
 export const projects = {
   kicker: 'Selected work',
   heading: 'Impact, not just repositories.',
-  intro: 'A few things I owned end to end — what it was, what I did, and the outcome.',
+  intro: 'A few things I owned end to end: what it was, what I did, and the outcome.',
   items: [
     {
       title: 'AI Copilot & Canvas',
-      what: 'Natural-language dashboard widgets — ask in plain English, get live charts on an interactive Canvas.',
-      did: 'Led a fast R&D spike that turns a single prompt — e.g. "top 5 accounts by MRR, a health-status pie, total MRR as a KPI, and a 6-month MRR trend" — into a full dashboard of bar, pie, KPI and line widgets on an interactive Canvas; improved Copilot context so users can ask richer questions.',
-      outcome: 'Idea to a working demo in about a day — recognized by company leadership as a step-change in AI-driven delivery speed.',
+      what: 'Natural-language dashboard widgets. Ask in plain English, get live charts on an interactive Canvas.',
+      did: 'Led a fast R&D spike that turns a single prompt (e.g. "top 5 accounts by MRR, a health-status pie, total MRR as a KPI, and a 6-month MRR trend") into a full dashboard of bar, pie, KPI and line widgets on an interactive Canvas; improved Copilot context so users can ask richer questions.',
+      outcome: 'Idea to a working demo in about a day. Recognized by company leadership as a step-change in AI-driven delivery speed.',
       tags: ['LLMs', 'RAG', 'Canvas', 'React'],
     },
     {
@@ -203,14 +203,14 @@ export const projects = {
     {
       title: 'Salesforce integration suite',
       what: 'Two-way sync between Salesforce and the platform.',
-      did: 'Architected Notes, Opportunity and Risk sync and pushback — with a streaming-data design for large datasets.',
+      did: 'Architected Notes, Opportunity and Risk sync and pushback, with a streaming-data design for large datasets.',
       outcome: '5 components delivered against 3 planned, with minimal defects.',
       tags: ['Salesforce', 'Streaming', 'System design'],
     },
     {
       title: 'Cross-cloud OAuth',
       what: 'Gmail / Outlook / Calendar access across Google and Azure.',
-      did: 'Owned OAuth apps end to end — registration, consent screens, the full Google/Microsoft verification review, and token flows — plus a token health monitoring system.',
+      did: 'Owned OAuth apps end to end: registration, consent screens, the full Google/Microsoft verification review, and token flows, plus a token health monitoring system.',
       outcome: 'Reliable cross-cloud integrations with early revocation detection and proactive alerting.',
       tags: ['OAuth 2.0', 'Google', 'Azure'],
     },
@@ -218,7 +218,7 @@ export const projects = {
       title: 'Email re-architecture',
       what: 'Core email processing at scale.',
       did: 'Re-architected email processing (including a global event-handler fix to drop unwanted events during initial sync) for performance and cost.',
-      outcome: 'Major performance and cost gains — with zero post-release bugs.',
+      outcome: 'Major performance and cost gains, with zero post-release bugs.',
       tags: ['Performance', 'Cost', 'AWS'],
     },
   ],
@@ -226,10 +226,10 @@ export const projects = {
 
 export const spotlight = {
   quote:
-    'This is huge — how fast he was able to move really shows the true power of AI once utilised best.',
+    'This is huge. How fast he was able to move really shows the true power of AI once utilised best.',
   attribution: 'Company leadership, Velaris',
   context:
-    'On a rapid R&D spike that turned the Copilot into natural-language dashboard widgets — from idea to a working demo in a day.',
+    'On a rapid R&D spike that turned the Copilot into natural-language dashboard widgets, from idea to a working demo in a day.',
 };
 
 export const recommendations = {
@@ -244,7 +244,7 @@ export const recommendations = {
     },
     {
       quote:
-        'As a full-stack engineer, Newumal consistently demonstrated a strong command of React, Node.js, and SQL/DynamoDB. His ability to tackle complex technical challenges and deliver high-quality solutions is truly impressive — and he excels in communication and collaboration.',
+        'As a full-stack engineer, Newumal consistently demonstrated a strong command of React, Node.js, and SQL/DynamoDB. His ability to tackle complex technical challenges and deliver high-quality solutions is truly impressive, and he excels in communication and collaboration.',
       name: 'Supun Induwara',
       title: 'Co-founder, Sezenta',
     },
@@ -268,11 +268,11 @@ export const qualification = {
     },
     {
       title: 'Generative AI Fundamentals',
-      org: 'Coursera — DeepLearning.AI',
+      org: 'Coursera / DeepLearning.AI',
       period: '2025',
     },
     {
-      title: 'AWS Certified Solutions Architect — Associate',
+      title: 'AWS Certified Solutions Architect – Associate',
       org: 'Amazon Web Services',
       period: 'In progress',
     },
@@ -280,7 +280,7 @@ export const qualification = {
   achievements: [
     'Co-designed and shipped a patented IoT hardware product as co-founder of STEM Labs.',
     'Publish engineering and technical-leadership content on YouTube (@buildwithnewumal).',
-    'Kotiyak Watina Adahasak — Season 2, Final 24 (2018), a national innovative-ideas competition on Sirasa TV.',
+    'Kotiyak Watina Adahasak, Season 2, Final 24 (2018), a national innovative-ideas competition on Sirasa TV.',
   ],
 };
 
@@ -288,7 +288,7 @@ export const resume = {
   kicker: 'Resume',
   heading: 'Curriculum vitae.',
   blurb:
-    'Same story as the site, in one page — view it here or download the PDF.',
+    'Same story as the site, in one page. View it here or download the PDF.',
   file: '/resume.pdf',
   fileName: 'Newumal-Weerasinghe-Resume.pdf',
   downloadLabel: 'Download PDF',

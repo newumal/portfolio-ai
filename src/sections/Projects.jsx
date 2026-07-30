@@ -28,11 +28,11 @@ const Projects = () => {
 
               <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed">
                 <p className="text-fog">
-                  <span className="font-semibold text-chalk">What I did — </span>
+                  <span className="font-semibold text-chalk">What I did: </span>
                   {project.did}
                 </p>
                 <p className="text-chalk">
-                  <span className="font-semibold text-accent">Outcome — </span>
+                  <span className="font-semibold text-accent">Outcome: </span>
                   {project.outcome}
                 </p>
               </div>
@@ -66,7 +66,7 @@ const Projects = () => {
           <blockquote className="relative mt-5 max-w-3xl font-display text-xl font-semibold leading-snug text-chalk sm:text-2xl">
             {spotlight.quote}
           </blockquote>
-          <p className="mt-5 text-sm font-semibold text-accent">— {spotlight.attribution}</p>
+          <p className="mt-5 text-sm font-semibold text-accent">{spotlight.attribution}</p>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog">{spotlight.context}</p>
         </Reveal>
       </Section>
