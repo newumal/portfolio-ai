@@ -5,7 +5,9 @@ import Home from './sections/Home';
 import Projects from './sections/Projects';
 import YouTube from './sections/YouTube';
 import Journey from './sections/Journey';
+import Skills from './sections/Skills';
 import About from './sections/About';
+import Contact from './sections/Contact';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         <Projects />
         <YouTube />
         <Journey />
+        <Skills />
         <About />
+        <Contact />
       </main>
       <Footer />
     </div>

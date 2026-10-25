@@ -13,10 +13,11 @@ const About = () => {
         ))}
       </div>
       <Reveal delay={0.16} className="mt-10 max-w-2xl border-t border-line pt-8">
-        <ul className="space-y-3">
-          {about.principles.map((line) => (
-            <li key={line} className="font-display text-lg text-chalk sm:text-xl">
-              {line}
+        <ul className="space-y-6">
+          {about.principles.map((p) => (
+            <li key={p.title}>
+              <p className="font-display text-lg text-chalk sm:text-xl">{p.title}</p>
+              <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-fog">{p.body}</p>
             </li>
           ))}
         </ul>

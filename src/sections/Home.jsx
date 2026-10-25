@@ -24,8 +24,8 @@ const Home = () => {
           fetchpriority="high"
           className="h-full w-full object-cover object-[center_18%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-[10%] via-ink/70 via-[36%] to-transparent to-[70%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 via-[30%] to-ink/35 md:via-ink/15 md:to-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink from-[10%] via-ink/75 via-[45%] to-ink/25 to-[88%] md:via-ink/70 md:via-[36%] md:to-transparent md:to-[70%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 via-[32%] to-ink/35 md:via-ink/35 md:to-ink/55" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-editorial items-end px-6 pb-16 pt-28 sm:px-8 md:items-center md:pb-20">

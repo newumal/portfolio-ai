@@ -23,7 +23,9 @@ export const nav = [
   { name: 'Work', to: 'projects' },
   { name: 'Sessions', to: 'sessions' },
   { name: 'Experience', to: 'experience' },
+  { name: 'Skills', to: 'skills' },
   { name: 'About', to: 'about' },
+  { name: 'Contact', to: 'contact' },
   {
     name: 'Resume',
     href: '/resume.pdf',
@@ -56,9 +58,18 @@ export const about = {
     'I use AI across the lifecycle and keep the decisions human. The work that matters ships: accurate agents, lower cloud spend, and a team that gets faster without lowering the bar.',
   ],
   principles: [
-    'Outcomes over output.',
-    'Design for scale and cost.',
-    'Fix the root cause, not the symptom.',
+    {
+      title: 'Outcomes over output.',
+      body: 'I optimize for value delivered to users and customers — work that moves a metric that matters, not tickets closed.',
+    },
+    {
+      title: 'Design for scale and cost.',
+      body: 'I architect for scalability and cost-efficiency, and adopt new technology deliberately, only where it earns a real edge.',
+    },
+    {
+      title: 'Fix the root cause, not the symptom.',
+      body: 'I moved my team from firefighting to permanent fixes: root-cause analysis, durable solutions, and aligning product and engineering on what to fix.',
+    },
   ],
 };
 
@@ -166,8 +177,8 @@ export const projects = {
     kicker: 'Also shipping',
     title: 'Kiln',
     what: 'Free, no-ads browser toolbox. Image, text, and developer tools that run locally.',
-    href: 'https://kiln.tools',
-    hrefLabel: 'kiln.tools',
+    href: 'https://kiln-dun.vercel.app/',
+    hrefLabel: 'kiln-dun.vercel.app',
     tags: ['Next.js', 'Product'],
   },
 };
@@ -249,5 +260,98 @@ export const resume = {
 };
 
 export const contact = {
-  blurb: 'Open to Team Lead and Associate Technical Lead conversations.',
+  kicker: 'Contact',
+  heading: "Let's talk.",
+  blurb:
+    'Open to Team Lead and Associate Technical Lead roles, and to interesting engineering conversations.',
+  ctaLabel: 'Email me',
+};
+
+export const skills = {
+  kicker: 'Skills',
+  heading: 'A full-stack toolkit, sharpened by AI.',
+  groups: [
+    {
+      title: 'Leadership & Architecture',
+      items: [
+        'Technical leadership',
+        'Team management',
+        'System design',
+        'Microservices',
+        'Caching',
+        'Queues / background processing',
+        'Performance',
+        'Scalability',
+        'Code review',
+        'Mentoring',
+        'Agile / Scrum',
+      ],
+    },
+    {
+      title: 'Frontend',
+      items: [
+        'React.js',
+        'Next.js',
+        'Redux',
+        'React Native',
+        'JavaScript (ES6+)',
+        'TypeScript',
+        'Tailwind',
+        'SSR / SSG (basic)',
+      ],
+    },
+    {
+      title: 'Backend',
+      items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'Python', 'PHP'],
+    },
+    {
+      title: 'Databases',
+      items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'MySQL', 'TypeORM'],
+    },
+    {
+      title: 'Cloud & DevOps',
+      items: [
+        'AWS (Lambda, EC2, S3, SQS)',
+        'Step Functions',
+        'CloudWatch',
+        'CloudFormation',
+        'Google Cloud',
+        'Azure',
+        'Docker',
+        'CI/CD',
+      ],
+    },
+    {
+      title: 'Identity & Security',
+      items: [
+        'OAuth 2.0',
+        'JWT',
+        'SSO',
+        'API security',
+        'Authorization / RBAC',
+        'Token management',
+      ],
+    },
+    {
+      title: 'AI Engineering',
+      items: [
+        'LLMs',
+        'RAG',
+        'Context graphs',
+        'Custom agents',
+        'Prompt engineering',
+        'Evals',
+        'LLM cost management',
+        'Pydantic AI',
+        'MCP',
+        'Tool calling',
+        'LLM routing',
+        'Copilot · Cursor · Claude Code',
+      ],
+    },
+    {
+      title: 'Testing & Tools',
+      items: ['Automated testing', 'Jest', 'ESLint', 'Git', 'JIRA'],
+    },
+  ],
 };

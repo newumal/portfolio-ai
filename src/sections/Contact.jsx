@@ -1,4 +1,4 @@
-import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaArrowRight } from 'react-icons/fa';
 import Section from '../components/Section';
 import Reveal from '../components/Reveal';
 import SocialLinks from '../components/SocialLinks';
@@ -10,23 +10,24 @@ const Contact = () => {
       <Reveal className="max-w-xl" delay={0.05}>
         <p className="text-base leading-relaxed text-fog sm:text-lg">{contact.blurb}</p>
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href={site.email ? `mailto:${site.email}` : undefined}
-            className="flex items-center gap-3 text-sm text-fog transition-colors hover:text-accent"
+            href={`mailto:${site.email}`}
+            className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-accent">
-              <FaEnvelope className="h-4 w-4" />
-            </span>
+            <FaEnvelope className="h-3.5 w-3.5" />
+            {contact.ctaLabel}
+            <FaArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+          </a>
+          <a
+            href={`mailto:${site.email}`}
+            className="text-sm text-fog transition-colors hover:text-chalk"
+          >
             {site.email}
           </a>
-          <div className="flex items-center gap-3 text-sm text-fog">
-            <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-accent">
-              <FaMapMarkerAlt className="h-4 w-4" />
-            </span>
-            {site.location}
-          </div>
         </div>
+
+        <p className="mt-6 text-sm text-fog">{site.location}</p>
 
         <div className="mt-10">
           <span className="kicker">Elsewhere</span>

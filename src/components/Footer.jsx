@@ -1,10 +1,10 @@
 import { Link as ScrollLink } from 'react-scroll';
-import { contact, resume, site } from '../data/content';
+import { resume, site } from '../data/content';
 import SocialLinks from './SocialLinks';
 
 const Footer = () => {
   return (
-    <footer id="contact" className="border-t border-line px-6 py-14 sm:px-8">
+    <footer id="footer" className="border-t border-line px-6 py-14 sm:px-8">
       <div className="mx-auto max-w-editorial">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
@@ -17,7 +17,7 @@ const Footer = () => {
               {site.shortName}
               <span className="text-accent">.</span>
             </ScrollLink>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-fog">{contact.blurb}</p>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-fog">{site.role}</p>
             <div className="mt-4 flex flex-col gap-1 text-sm text-fog">
               <a href={`mailto:${site.email}`} className="transition-colors hover:text-chalk">
                 {site.email}
