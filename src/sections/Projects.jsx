@@ -29,6 +29,20 @@ const Projects = () => {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-mist">{projects.lead.did}</p>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk">{projects.lead.outcome}</p>
           <Tags tags={projects.lead.tags} className="mt-6" />
+          {projects.lead.proof && (
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line pt-5 text-sm">
+              <span className="text-mist">{projects.lead.proof.note}</span>
+              <a
+                href={projects.lead.proof.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 font-medium text-chalk transition-colors hover:text-mist"
+              >
+                {projects.lead.proof.label}
+                <FaArrowUpRightFromSquare className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
+          )}
         </article>
       </Reveal>
 

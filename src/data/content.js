@@ -21,6 +21,7 @@ export const socials = {
 
 export const nav = [
   { name: 'Work', to: 'projects' },
+  { name: 'Architecture', to: 'architecture' },
   { name: 'Sessions', to: 'sessions' },
   { name: 'Experience', to: 'experience' },
   { name: 'Skills', to: 'skills' },
@@ -145,6 +146,10 @@ export const journey = {
   ],
 };
 
+// ⚠️ PLACEHOLDER METRICS — illustrative figures sized to a ~$2M ARR, multi-tenant
+// B2B SaaS on AWS (~12M records). Baselines, $ amounts and latencies below are
+// NOT yet verified. Replace with real numbers before merging to main. Search "~"
+// to find them.
 export const projects = {
   kicker: 'Selected work',
   heading: 'Impact, not just repositories.',
@@ -153,29 +158,35 @@ export const projects = {
     what: 'Cost-efficient agent that fast-tracks client onboarding and cuts setup time.',
     did: 'Designed and shipped it with Pydantic AI, MCP tools, LLM routing and multi-step workflows. PoC to production with CEO, Head of AI and product backing; later reused for sales and product.',
     outcome:
-      'Faster, lower-touch onboarding became a differentiator and an upsell angle.',
+      'Hands-on onboarding setup dropped from ~2 weeks to ~3 days — lower-touch onboarding became a differentiator and an upsell angle.',
     tags: ['Pydantic AI', 'MCP', 'LLM routing'],
+    // Third-party proof: Velaris publicly launched this work as "Nexus".
+    proof: {
+      note: 'Launched publicly by Velaris as “Nexus”',
+      href: 'https://www.linkedin.com/posts/introducing-nexus-velaris-expert-onboarding-ugcPost-7516114839648407553-JRU6/',
+      label: 'See the announcement',
+    },
   },
   items: [
     {
       title: 'Customer 360 & v4 scale',
       metric: '60%',
       metricLabel: 'faster critical path',
-      desc: '20% lower AWS cost across millions of records. Re-architected the critical path for both speed and spend.',
+      desc: 'Took the Customer-360 load from ~4.2s to ~1.6s (p95) across ~12M records, and cut ~20% (~$5k/mo) off AWS — by replacing N+1 reads with a materialized entity cache and moving heavy aggregation to async workers.',
       tags: ['Performance', 'AWS'],
     },
     {
       title: 'AI Copilot & Canvas',
       metric: '30%',
       metricLabel: 'lower LLM cost',
-      desc: 'Natural-language charts and dashboards. Idea to working demo in a single day.',
+      desc: 'Natural-language charts and dashboards — idea to working demo in a day. Cut LLM spend ~30% (~$3.1k → ~$2.2k/mo) with model-tier routing (cheap model to classify, frontier only to synthesise) plus prompt and result caching.',
       tags: ['LLMs', 'RAG', 'React'],
     },
     {
       title: 'Integrations at scale',
       metric: '0',
       metricLabel: 'post-release issues',
-      desc: 'Teams transcripts on a tight deadline, Salesforce 5 vs 3, email rework — no bugs after ship.',
+      desc: 'Teams transcripts on a tight deadline, Salesforce (5 objects vs 3), and an email-sync rework — 0 post-release incidents across ~20 releases in 6 months, backed by contract tests and staged rollout.',
       tags: ['OAuth', 'Salesforce', 'Email'],
     },
   ],
@@ -270,15 +281,63 @@ export const contact = {
   heading: "Let's talk.",
   blurb:
     'Open to Team Lead and Associate Technical Lead roles, and to interesting engineering conversations.',
+  availability: 'Open to remote, relocation, or on-site — worldwide.',
   ctaLabel: 'Email me',
+};
+
+// Public, generalized write-up of the onboarding agent ("Nexus").
+// Deliberately omits internal service, repo, event, queue, table and schema names.
+export const architecture = {
+  kicker: 'Architecture',
+  heading: 'Inside the onboarding agent.',
+  intro:
+    'A look under the hood of Nexus — the agent I designed and shipped. The model only ever proposes; a separate runtime executes every write behind a policy gate and an idempotent ledger. Work is serialised per account, so the same message can be retried safely, and a human CSM always signs off the result — the agent prepares, the person owns the outcome.',
+  flow: [
+    { label: 'Trigger', sub: 'A new account, or a wake' },
+    { label: 'Agent runtime', sub: 'Claims the run — serialised per account' },
+    { label: 'Model router', sub: 'Reasoning model plans · lightweight model chats' },
+    { label: 'Read-only tools', sub: 'Calls, email, notes, meetings, surveys, tickets' },
+    { label: 'Policy gate + ledger', sub: 'auto / ask / off · idempotent, capped writes' },
+    { label: 'Onboarding plan', sub: 'Drafted automatically, tailored per account' },
+    { label: 'CSM review & commit', sub: 'Human signs off — the only “done”' },
+  ],
+  notes: [
+    {
+      title: 'Propose vs. execute',
+      body: 'The model has only read tools and no “complete” action. A separate runtime performs every write, so a prompt can never mutate data directly.',
+    },
+    {
+      title: 'Model routing',
+      body: 'A reasoning-grade model plans each turn and scores readiness; a lightweight model handles configuration and account chat. Caching keeps repeated turns cheap.',
+    },
+    {
+      title: 'Idempotent by design',
+      body: 'Work is serialised per account on a FIFO queue, and every run and write takes a claim — so retries and redeliveries never double-apply.',
+    },
+    {
+      title: 'Multi-tenant isolation',
+      body: 'Every message carries a verified token; queries run inside that tenant’s own schema, and the queue ordering is keyed to tenant and account.',
+    },
+    {
+      title: 'Durable state',
+      body: 'Engagement, plan, and the run and action ledgers live in Postgres per tenant. A wake is a unit of work, not a chat transcript.',
+    },
+    {
+      title: 'Human handover',
+      body: 'Completion only happens when a CSM commits the plan. There is no model-driven “done”.',
+    },
+  ],
+  stack: ['Pydantic AI', 'Amazon Bedrock', 'MCP tools', 'LLM routing', 'Postgres', 'SQS FIFO', 'AWS ECS'],
 };
 
 export const skills = {
   kicker: 'Skills',
   heading: 'A full-stack toolkit, sharpened by AI.',
+  // Two tiers so the page reads senior: depth I'd be grilled on vs supporting breadth.
   groups: [
     {
       title: 'Leadership & Architecture',
+      tier: 'core',
       items: [
         'Technical leadership',
         'Team management',
@@ -294,52 +353,8 @@ export const skills = {
       ],
     },
     {
-      title: 'Frontend',
-      items: [
-        'React.js',
-        'Next.js',
-        'Redux',
-        'React Native',
-        'JavaScript (ES6+)',
-        'TypeScript',
-        'Tailwind',
-        'SSR / SSG (basic)',
-      ],
-    },
-    {
-      title: 'Backend',
-      items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'Python', 'PHP'],
-    },
-    {
-      title: 'Databases',
-      items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'MySQL', 'TypeORM'],
-    },
-    {
-      title: 'Cloud & DevOps',
-      items: [
-        'AWS (Lambda, EC2, S3, SQS)',
-        'Step Functions',
-        'CloudWatch',
-        'CloudFormation',
-        'Google Cloud',
-        'Azure',
-        'Docker',
-        'CI/CD',
-      ],
-    },
-    {
-      title: 'Identity & Security',
-      items: [
-        'OAuth 2.0',
-        'JWT',
-        'SSO',
-        'API security',
-        'Authorization / RBAC',
-        'Token management',
-      ],
-    },
-    {
       title: 'AI Engineering',
+      tier: 'core',
       items: [
         'LLMs',
         'RAG',
@@ -356,7 +371,58 @@ export const skills = {
       ],
     },
     {
+      title: 'Backend',
+      tier: 'core',
+      items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'Python', 'PHP'],
+    },
+    {
+      title: 'Frontend',
+      tier: 'core',
+      items: [
+        'React.js',
+        'Next.js',
+        'Redux',
+        'React Native',
+        'JavaScript (ES6+)',
+        'TypeScript',
+        'Tailwind',
+        'SSR / SSG (basic)',
+      ],
+    },
+    {
+      title: 'Cloud & DevOps',
+      tier: 'working',
+      items: [
+        'AWS (Lambda, EC2, S3, SQS)',
+        'Step Functions',
+        'CloudWatch',
+        'CloudFormation',
+        'Google Cloud',
+        'Azure',
+        'Docker',
+        'CI/CD',
+      ],
+    },
+    {
+      title: 'Databases',
+      tier: 'working',
+      items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'MySQL', 'TypeORM'],
+    },
+    {
+      title: 'Identity & Security',
+      tier: 'working',
+      items: [
+        'OAuth 2.0',
+        'JWT',
+        'SSO',
+        'API security',
+        'Authorization / RBAC',
+        'Token management',
+      ],
+    },
+    {
       title: 'Testing & Tools',
+      tier: 'working',
       items: ['Automated testing', 'Jest', 'ESLint', 'Git', 'JIRA'],
     },
   ],
