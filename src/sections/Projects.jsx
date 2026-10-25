@@ -1,146 +1,85 @@
 import Section from '../components/Section';
 import Reveal from '../components/Reveal';
-import { FaArrowRight, FaQuoteLeft } from 'react-icons/fa';
+import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { projects, recommendations, spotlight } from '../data/content';
+
+const TagLine = ({ tags }) => (
+  <p className="mt-2 text-xs text-fog/80">{tags.join('  ·  ')}</p>
+);
 
 const Projects = () => {
   return (
-    <>
-      <Section
-        id="projects"
-        kicker={projects.kicker}
-        heading={projects.heading}
-        intro={projects.intro}
-      >
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.items.map((project, i) => (
-            <Reveal
-              key={project.title}
-              delay={(i % 2) * 0.08}
-              className="group flex h-full flex-col rounded-2xl border border-line bg-panel p-8 transition-colors duration-300 hover:border-accent/50"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-xl font-bold text-chalk">
-                  {project.title}
-                </h3>
-              </div>
-              <p className="mt-2 text-sm font-medium text-fog">{project.what}</p>
+    <Section id="projects" kicker={projects.kicker} heading={projects.heading}>
+      <Reveal className="border-t border-line pt-8">
+        <p className="text-xs font-semibold uppercase tracking-kicker text-fog">Featured</p>
+        <h3 className="mt-3 font-display text-2xl font-bold text-chalk sm:text-3xl">
+          {projects.lead.title}
+        </h3>
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-fog">{projects.lead.what}</p>
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-mist">{projects.lead.did}</p>
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk">{projects.lead.outcome}</p>
+        <TagLine tags={projects.lead.tags} />
+      </Reveal>
 
-              <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed">
-                <p className="text-fog">
-                  <span className="font-semibold text-chalk">What I did: </span>
-                  {project.did}
-                </p>
-                <p className="text-chalk">
-                  <span className="font-semibold text-accent">Outcome: </span>
-                  {project.outcome}
-                </p>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        {projects.featured && (
-          <Reveal
-            delay={0.04}
-            className="mt-6 flex flex-col rounded-2xl border border-accent/40 bg-accent/[0.06] p-8 transition-colors duration-300 hover:border-accent/70 sm:p-10 md:flex-row md:items-start md:gap-10"
-          >
-            <div className="flex-1">
-              <span className="kicker">{projects.featured.kicker}</span>
-              <h3 className="mt-4 font-display text-2xl font-bold text-chalk sm:text-3xl">
-                {projects.featured.title}
+      <ol className="mt-12 divide-y divide-line border-y border-line">
+        {projects.items.map((item, i) => (
+          <Reveal as="li" key={item.title} delay={i * 0.05} className="py-5">
+            <div className="grid gap-2 sm:grid-cols-12 sm:items-baseline sm:gap-8">
+              <h3 className="font-display text-base font-semibold text-chalk sm:col-span-4">
+                {item.title}
               </h3>
-              <p className="mt-2 text-sm font-medium text-fog">{projects.featured.what}</p>
-              <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed">
-                <p className="text-fog">
-                  <span className="font-semibold text-chalk">What I did: </span>
-                  {projects.featured.did}
-                </p>
-                <p className="text-chalk">
-                  <span className="font-semibold text-accent">Outcome: </span>
-                  {projects.featured.outcome}
-                </p>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {projects.featured.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className="sm:col-span-8">
+                <p className="text-sm leading-relaxed text-fog">{item.outcome}</p>
+                <TagLine tags={item.tags} />
               </div>
             </div>
-            <a
-              href={projects.featured.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-colors hover:bg-accent-hover md:mt-12"
-            >
-              {projects.featured.hrefLabel}
-              <FaArrowRight className="h-3 w-3" />
-            </a>
           </Reveal>
-        )}
+        ))}
 
-        {/* Recognition spotlight — internal validation of the Copilot R&D */}
-        <Reveal
-          delay={0.1}
-          className="relative mt-14 overflow-hidden rounded-3xl border border-accent/30 bg-accent/[0.06] p-8 sm:p-12"
-        >
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-6 -top-8 select-none font-display text-[9rem] leading-none text-accent/10"
-          >
-            &ldquo;
-          </div>
-          <span className="kicker">Recognition</span>
-          <blockquote className="relative mt-5 max-w-3xl font-display text-xl font-semibold leading-snug text-chalk sm:text-2xl">
-            {spotlight.quote}
-          </blockquote>
-          <p className="mt-5 text-sm font-semibold text-accent">{spotlight.attribution}</p>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog">{spotlight.context}</p>
-        </Reveal>
-      </Section>
-
-      <Section
-        id="recommendations"
-        kicker={recommendations.kicker}
-        heading={recommendations.heading}
-        className="bg-panel/40"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {recommendations.items.map((rec, i) => (
-            <Reveal
-              key={rec.name}
-              delay={i * 0.1}
-              className="flex h-full flex-col rounded-2xl border border-line bg-panel p-8"
-            >
-              <FaQuoteLeft className="h-6 w-6 text-accent/40" />
-              <p className="mt-5 flex-1 text-sm leading-relaxed text-fog">
-                {rec.quote}
+        <Reveal as="li" delay={0.16} className="py-5">
+          <div className="grid gap-2 sm:grid-cols-12 sm:items-baseline sm:gap-8">
+            <div className="sm:col-span-4">
+              <p className="text-xs font-semibold uppercase tracking-kicker text-fog">
+                {projects.kiln.kicker}
               </p>
-              <div className="mt-6 border-t border-line pt-5">
-                <p className="font-display font-semibold text-chalk">{rec.name}</p>
-                <p className="mt-1 text-sm text-fog">{rec.title}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-    </>
+              <h3 className="mt-1 font-display text-base font-semibold text-chalk">
+                {projects.kiln.title}
+              </h3>
+            </div>
+            <div className="sm:col-span-8">
+              <p className="text-sm leading-relaxed text-fog">{projects.kiln.what}</p>
+              <TagLine tags={projects.kiln.tags} />
+              <a
+                href={projects.kiln.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-chalk transition-colors hover:text-mist"
+              >
+                {projects.kiln.hrefLabel}
+                <FaArrowUpRightFromSquare className="h-3 w-3" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </ol>
+
+      <Reveal delay={0.1} className="mt-14 border-t border-line pt-8">
+        <blockquote className="max-w-3xl font-display text-xl font-semibold leading-snug text-chalk sm:text-2xl">
+          “{spotlight.quote}”
+        </blockquote>
+        <p className="mt-4 text-sm text-fog">{spotlight.attribution}</p>
+      </Reveal>
+
+      <ul className="mt-10 grid gap-6 border-t border-line pt-8 sm:grid-cols-3">
+        {recommendations.items.map((rec, i) => (
+          <Reveal as="li" key={rec.name} delay={0.08 + i * 0.05}>
+            <p className="text-sm leading-relaxed text-fog">“{rec.quote}”</p>
+            <p className="mt-3 font-display text-sm font-semibold text-chalk">{rec.name}</p>
+            <p className="mt-0.5 text-xs text-fog">{rec.title}</p>
+          </Reveal>
+        ))}
+      </ul>
+    </Section>
   );
 };
 

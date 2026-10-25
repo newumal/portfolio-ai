@@ -2,15 +2,10 @@ import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './sections/Home';
-import About from './sections/About';
-import Philosophy from './sections/Philosophy';
-import Journey from './sections/Journey';
-import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import YouTube from './sections/YouTube';
-import Qualification from './sections/Qualification';
-import Resume from './sections/Resume';
-import Contact from './sections/Contact';
+import Journey from './sections/Journey';
+import About from './sections/About';
 
 function App() {
   return (
@@ -19,15 +14,10 @@ function App() {
       <Navbar />
       <main>
         <Home />
-        <About />
-        <Philosophy />
-        <Journey />
-        <Skills />
         <Projects />
         <YouTube />
-        <Qualification />
-        <Resume />
-        <Contact />
+        <Journey />
+        <About />
       </main>
       <Footer />
     </div>

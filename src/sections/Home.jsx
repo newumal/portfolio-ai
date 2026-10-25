@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
-import { FaArrowRight, FaChevronDown, FaDownload } from 'react-icons/fa';
+import { FaArrowRight, FaDownload } from 'react-icons/fa';
 import { hero, site } from '../data/content';
 import SocialLinks from '../components/SocialLinks';
 
@@ -10,126 +10,70 @@ const Home = () => {
     reduce
       ? {}
       : {
-          initial: { opacity: 0, y: 20 },
+          initial: { opacity: 0, y: 16 },
           animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+          transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
         };
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* ── Background layer: full-bleed portrait ── */}
+    <section id="home" className="relative min-h-[100svh] overflow-hidden">
       <div aria-hidden className="absolute inset-0">
         <img
           src="/profile.jpg"
           alt=""
           fetchpriority="high"
-          className="h-full w-full object-cover object-[center_20%]"
+          className="h-full w-full object-cover object-[center_18%]"
         />
-        {/* Reading scrims — dark gutters left & right, fade top & bottom,
-            so the person stays lit in the centre while text stays legible. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink from-15% via-ink/45 via-40% to-transparent to-62%" />
-        <div className="absolute inset-0 bg-gradient-to-l from-ink from-8% via-ink/45 via-27% to-transparent to-50%" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink from-8% via-transparent to-ink/60" />
-        {/* extra veil on small screens where columns overlap the photo */}
-        <div className="absolute inset-0 bg-ink/40 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink from-[10%] via-ink/70 via-[36%] to-transparent to-[70%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 via-[30%] to-ink/35 md:via-ink/15 md:to-ink/50" />
       </div>
 
-      {/* ── Content layer ── */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-editorial items-center px-6 pt-28 pb-16 sm:px-8 md:pt-24 md:pb-0">
-        <div className="grid w-full grid-cols-1 items-center gap-12 md:grid-cols-12">
-          {/* Left — headline */}
-          <motion.div {...rise(0)} className="md:col-span-6 lg:col-span-5">
-            <span className="kicker">{hero.kicker}</span>
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-chalk drop-shadow-sm sm:text-5xl lg:text-[3.75rem]">
-              I&apos;m {site.shortName},
-              <br />
-              <span className="text-fog">{hero.headline}</span>
-            </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-mist sm:text-lg">
-              {hero.subheadline}
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-editorial items-end px-6 pb-16 pt-28 sm:px-8 md:items-center md:pb-20">
+        <div className="grid w-full grid-cols-1 items-end gap-14 md:grid-cols-12 md:items-center">
+          <motion.div {...rise(0)} className="md:col-span-7 lg:col-span-6">
+            <p className="text-sm font-medium text-mist">{site.name}</p>
+            <p className="mt-2 text-xs font-semibold uppercase tracking-kicker text-fog">
+              {hero.kicker}
             </p>
+            <h1 className="mt-5 max-w-xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-chalk sm:text-5xl lg:text-[3.25rem]">
+              {hero.headline}
+            </h1>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <ScrollLink
                 to={hero.primaryCta.to}
+                href={`#${hero.primaryCta.to}`}
                 smooth
                 offset={-90}
                 duration={500}
-                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-all hover:bg-accent-hover"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
               >
                 {hero.primaryCta.label}
-                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-              </ScrollLink>
-              <ScrollLink
-                to={hero.secondaryCta.to}
-                smooth
-                offset={-90}
-                duration={500}
-                className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-ink/40 px-6 py-3 text-sm font-semibold text-chalk backdrop-blur-sm transition-colors hover:border-accent/60 hover:text-accent"
-              >
-                {hero.secondaryCta.label}
+                <FaArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
               </ScrollLink>
               <a
-                href="/resume.pdf"
-                download="Newumal-Weerasinghe-Resume.pdf"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/40 px-6 py-3 text-sm font-semibold text-chalk backdrop-blur-sm transition-colors hover:border-accent/60 hover:text-accent"
+                href={hero.resumeCta.href}
+                download={hero.resumeCta.download}
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/50 px-5 py-2.5 text-sm font-semibold text-chalk backdrop-blur-sm transition-colors hover:border-chalk/40"
               >
-                <FaDownload className="h-3.5 w-3.5" />
-                Resume
+                <FaDownload className="h-3 w-3" />
+                {hero.resumeCta.label}
               </a>
-            </div>
-
-            <div className="mt-10 hidden lg:block">
-              <ScrollLink
-                to="about"
-                smooth
-                offset={-90}
-                duration={600}
-                aria-label="Scroll to about"
-                className="grid h-14 w-14 cursor-pointer place-items-center rounded-full bg-accent text-white shadow-lg shadow-accent/25 transition-colors hover:bg-accent-hover"
-              >
-                <FaChevronDown className="h-4 w-4 animate-scroll-bob" />
-              </ScrollLink>
             </div>
           </motion.div>
 
-          {/* Spacer — the portrait shows through here on desktop */}
-          <div className="hidden md:col-span-2 md:block lg:col-span-4" />
+          <div className="hidden md:col-span-1 md:block lg:col-span-3" />
 
-          {/* Right — sidebar */}
-          <motion.div {...rise(0.3)} className="md:col-span-4 lg:col-span-3">
-            <div className="space-y-8">
-              <div>
-                <span className="kicker">{hero.sidebar.now.label}</span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-chalk">
-                  {hero.sidebar.now.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-mist">
-                  {hero.sidebar.now.body}
-                </p>
-                <ScrollLink
-                  to="projects"
-                  smooth
-                  offset={-90}
-                  duration={500}
-                  className="link-underline mt-4 cursor-pointer"
-                >
-                  See the work <FaArrowRight className="h-3 w-3" />
-                </ScrollLink>
-              </div>
-
-              <div className="hairline border-t pt-8">
-                <span className="kicker">{hero.sidebar.focus.label}</span>
-                <p className="mt-4 text-sm leading-relaxed text-mist">
-                  {hero.sidebar.focus.body}
-                </p>
-              </div>
-
-              <div className="hairline border-t pt-8">
-                <span className="kicker">Follow me</span>
-                <SocialLinks className="mt-4" />
-              </div>
-            </div>
+          <motion.div
+            {...rise(0.15)}
+            className="rounded-xl bg-ink/75 p-4 backdrop-blur-md md:col-span-4 md:bg-transparent md:p-0 md:backdrop-blur-none lg:col-span-3"
+          >
+            <span className="kicker">{hero.now.label}</span>
+            <h2 className="mt-4 font-display text-lg font-semibold text-chalk">
+              {hero.now.title}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-mist">{hero.now.body}</p>
+            <SocialLinks className="mt-6" />
           </motion.div>
         </div>
       </div>

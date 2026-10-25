@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { FaBars, FaTimes, FaCode, FaDownload } from 'react-icons/fa';
+import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
 import { nav, site } from '../data/content';
 
@@ -27,36 +27,29 @@ const Navbar = () => {
           to="home"
           smooth
           duration={500}
-          className="group flex cursor-pointer items-center gap-2 font-display text-lg font-bold tracking-tight text-chalk"
+          className="cursor-pointer font-display text-lg font-bold tracking-tight text-chalk"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-accent/15 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
-            <FaCode className="h-4 w-4" />
-          </span>
           {site.shortName}
           <span className="text-accent">.</span>
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {nav.map((item) =>
-            item.highlight ? (
-              <Link
+            item.href ? (
+              <a
                 key={item.name}
-                to={item.to}
-                spy
-                smooth
-                offset={-90}
-                duration={500}
-                className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 text-sm font-semibold text-accent transition-colors hover:border-accent hover:bg-accent/20"
-                activeClass="!border-accent !bg-accent/25"
+                href={item.href}
+                download={item.download}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-fog transition-colors hover:text-chalk"
               >
                 <FaDownload className="h-3 w-3" />
                 {item.name}
-              </Link>
+              </a>
             ) : (
               <Link
                 key={item.name}
                 to={item.to}
+                href={`#${item.to}`}
                 spy
                 smooth
                 offset={-90}
@@ -68,21 +61,11 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <Link
-            to="contact"
-            smooth
-            offset={-90}
-            duration={500}
-            className="cursor-pointer rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
-          >
-            Get in touch
-          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen((v) => !v)}
-          className="p-2 text-chalk md:hidden"
+          className="p-2 text-chalk lg:hidden"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
         >
@@ -90,7 +73,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -98,29 +80,26 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
-            className="mx-4 mt-3 overflow-hidden rounded-2xl border border-line bg-panel/95 backdrop-blur-lg md:hidden"
+            className="mx-4 mt-3 overflow-hidden rounded-2xl border border-line bg-panel/95 backdrop-blur-lg lg:hidden"
           >
             <div className="flex flex-col p-3">
               {nav.map((item) =>
-                item.highlight ? (
-                  <Link
+                item.href ? (
+                  <a
                     key={item.name}
-                    to={item.to}
-                    spy
-                    smooth
-                    offset={-90}
-                    duration={500}
+                    href={item.href}
+                    download={item.download}
                     onClick={() => setIsOpen(false)}
-                    className="mt-1 inline-flex cursor-pointer items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
-                    activeClass="!border-accent !bg-accent/25"
+                    className="inline-flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-fog hover:bg-panel2 hover:text-chalk"
                   >
                     <FaDownload className="h-3.5 w-3.5" />
                     {item.name}
-                  </Link>
+                  </a>
                 ) : (
                   <Link
                     key={item.name}
                     to={item.to}
+                    href={`#${item.to}`}
                     spy
                     smooth
                     offset={-90}

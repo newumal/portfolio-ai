@@ -20,330 +20,181 @@ export const socials = {
 };
 
 export const nav = [
-  { name: 'Home', to: 'home' },
-  { name: 'About', to: 'about' },
-  { name: 'Approach', to: 'philosophy' },
-  { name: 'Journey', to: 'journey' },
-  { name: 'Skills', to: 'skills' },
   { name: 'Work', to: 'projects' },
   { name: 'Sessions', to: 'sessions' },
-  { name: 'Resume', to: 'resume', highlight: true },
-  { name: 'Contact', to: 'contact' },
+  { name: 'Experience', to: 'experience' },
+  { name: 'About', to: 'about' },
+  {
+    name: 'Resume',
+    href: '/resume.pdf',
+    download: 'Newumal-Weerasinghe-Resume.pdf',
+    highlight: true,
+  },
 ];
 
 export const hero = {
   kicker: 'Team Lead · Associate Technical Lead',
-  headline: 'I lead teams and ship production AI. Judgment stays human.',
-  subheadline:
-    'Hands-on engineering leader with 7+ years scaling production SaaS. Full-stack delivery, team leadership, and cost-efficient AI/LLM systems, with human ownership of the decisions.',
+  headline: 'I lead teams and ship production AI.',
   primaryCta: { label: 'View my work', to: 'projects' },
-  secondaryCta: { label: 'Read my story', to: 'about' },
-  sidebar: {
-    now: {
-      label: 'Now',
-      title: 'Leading engineering at Velaris',
-      body: 'Leading a team of 5. Shipping a production onboarding AI agent and driving scale, reliability, and AWS cost work on a B2B SaaS platform.',
-    },
-    focus: {
-      label: 'What I focus on',
-      body: 'Production AI and cost-aware systems: MCP tools, LLM routing, and custom agents that cut setup time and cloud spend, without handing judgment to the model.',
-    },
+  resumeCta: {
+    label: 'Resume',
+    href: '/resume.pdf',
+    download: 'Newumal-Weerasinghe-Resume.pdf',
+  },
+  now: {
+    label: 'Now',
+    title: 'Velaris · team of 5',
+    body: 'Production onboarding agent. Scale, reliability, and AWS cost.',
   },
 };
 
 export const about = {
-  kicker: 'About me',
+  kicker: 'About',
   heading: 'Engineer turned engineering leader.',
   paragraphs: [
-    "I'm Associate Technical Lead and Team Lead at Velaris, leading a cross-functional team of 5 engineers on a B2B SaaS platform built with React, Node, and AWS. I own sprint planning, technical direction, code reviews, mentoring, release delivery, and hiring interviews, and I still contribute to system design.",
-    'The work I care about is production AI that actually ships. I designed and built a cost-efficient onboarding agent with Pydantic AI, MCP tools, LLM routing and multi-step workflows, then turned faster, lower-touch onboarding into a product-expansion and upsell angle. The same approach later got reused across sales and product workflows.',
-    'I think like an owner, not just an engineer. Stability, scale and cost matter as much as features: we took the customer 360 view and a major v4 rollout to millions of records, improved critical-path performance by 60%, and cut AWS operational cost by 20%. AI-assisted, human-owned: move faster, keep judgment with the people.',
+    "Associate Technical Lead and Team Lead at Velaris. I lead a team of 5 on a B2B SaaS platform — direction, reviews, releases, hiring — and I still write the hard systems.",
+    'I use AI across the lifecycle and keep the decisions human. The work that matters ships: accurate agents, lower cloud spend, and a team that gets faster without lowering the bar.',
   ],
-  stats: [
-    { value: '7+ yrs', label: 'Building & leading production SaaS' },
-    { value: 'Team of 5', label: 'Engineers I lead end to end' },
-    { value: '60%', label: 'Faster critical-path performance' },
-    { value: '20%', label: 'Lower AWS operational cost' },
-  ],
-};
-
-export const philosophy = {
-  kicker: 'How I work',
-  heading: 'Engineering & leadership philosophy.',
-  intro:
-    'Five principles shape how I think, build, and lead. That is the difference between a list of features and a track record of real outcomes.',
-  cards: [
-    {
-      no: '01',
-      title: 'Outcomes over output.',
-      body: 'I optimize for value delivered to users and customers: real outcomes, not tickets closed. Every piece of work should move a metric that matters, not just clear a backlog.',
-    },
-    {
-      no: '02',
-      title: 'Design for scale, cost, and the market.',
-      body: 'I architect with scalability and cost-efficiency in mind, and choose technologies for the problem and the market, adopting new and emerging tech deliberately where it creates a real edge.',
-    },
-    {
-      no: '03',
-      title: 'AI-assisted, human-owned.',
-      body: 'I ship production AI (RAG, context graphs, tool-using agents, Copilot) and use AI across the engineering lifecycle. Every decision stays human-owned. Custom agents and MCP tools are grounded in our product and domain so output stays accurate, not hallucinated.',
-    },
-    {
-      no: '04',
-      title: 'Fix the root cause, not the symptom.',
-      body: 'I introduced a data-driven approach to churn and reliability: documenting root causes, durable fixes, and the engineering and QA effort involved. It aligned Product and Engineering, freed capacity for new features, and was later adopted by other teams.',
-    },
-    {
-      no: '05',
-      title: 'Lead by lifting others.',
-      body: 'Leadership is making the team faster, not just myself. I mentor engineers across teams, run enablement sessions, step up under pressure, and care about a healthy, high-standards engineering culture.',
-    },
+  principles: [
+    'Outcomes over output.',
+    'Design for scale and cost.',
+    'Fix the root cause, not the symptom.',
   ],
 };
 
 export const journey = {
-  kicker: 'Journey',
-  heading: 'Growth, ownership, and impact.',
+  kicker: 'Experience',
+  heading: 'Roles.',
   items: [
     {
-      period: 'Jan 2026 – Present',
+      period: '2026 – Present',
       role: 'Associate Technical Lead & Team Lead',
       org: 'Velaris',
-      summary:
-        'Lead a team of 5: sprint planning, technical direction, reviews, mentoring, releases and interviews. Built a production onboarding AI agent (Pydantic AI, MCP, LLM routing) and turned faster onboarding into an upsell angle. 60% faster critical path, 20% lower AWS cost; root-cause delivery adopted by other teams.',
-      tags: ['Leadership', 'Onboarding agent', 'System design'],
+      href: 'https://velaris.io',
+      summary: 'Team of 5. Onboarding agent, 60% faster critical path, 20% lower AWS cost.',
+      tags: ['Leadership', 'Pydantic AI', 'MCP', 'AWS'],
     },
     {
-      period: 'Jul 2023 – Jan 2026',
+      period: '2023 – 2026',
       role: 'Senior Software Engineer',
       org: 'Velaris',
-      summary:
-        'Shipped AI Copilot and Canvas dashboards, plus RAG / context-graph / agentic features that cut LLM cost by 30%. Reworked email processing, led AWS cost work and token-health monitoring, and served as acting team lead.',
-      tags: ['React', 'Node.js', 'AWS', 'LLMs / RAG'],
+      summary: 'Copilot + Canvas. RAG / agentic features. 30% lower LLM cost. Acting lead.',
+      tags: ['React', 'Node.js', 'LLMs', 'RAG'],
     },
     {
-      period: 'Jul 2022 – Jun 2023',
+      period: '2022 – 2023',
       role: 'Software Engineer',
       org: 'Velaris',
-      summary:
-        'Owned Google Cloud and Azure user integrations end to end: OAuth apps, Gmail, Outlook, calendars and Teams transcripts. Shipped a Salesforce suite of 5 components against 3 planned, including streaming for large datasets.',
-      tags: ['OAuth', 'Integrations', 'Salesforce'],
+      summary: 'Google / Azure OAuth, Gmail, Outlook, Teams transcripts. Salesforce 5 vs 3.',
+      tags: ['OAuth', 'Salesforce', 'Integrations'],
     },
     {
-      period: 'Mar 2021 – Jul 2022',
+      period: '2021 – 2022',
       role: 'Software Engineer',
       org: 'Sezenta',
-      summary:
-        'Built web and cross-platform mobile apps with React, React Native, Node, MongoDB and AWS, including REST APIs on Express and NestJS.',
+      summary: 'React, React Native, Node, MongoDB, AWS.',
       tags: ['React Native', 'Node', 'MongoDB'],
     },
     {
-      period: 'Feb 2019 – Mar 2021',
+      period: '2019 – 2021',
       role: 'Development Engineer & Co-Founder',
       org: 'STEM Labs',
-      summary:
-        'Delivered STEM education programmes and web projects; built software and an IoT hardware product for which a patent application was filed.',
-      tags: ['IoT', 'Product', 'Teaching'],
+      summary: 'STEM programmes and an IoT product; patent application filed.',
+      tags: ['IoT', 'Product'],
     },
     {
-      period: 'Feb 2017 – Feb 2019',
+      period: '2017 – 2019',
       role: 'Associate Software Engineer',
       org: 'Effective Solutions',
-      summary:
-        'Built Symfony/PHP platforms including loyalty and student enrollment systems, e-commerce for Softlogic and TyreOnline, and IoT (Arduino / MQTT / Node-RED).',
-      tags: ['Symfony', 'E-commerce', 'IoT'],
+      summary: 'Symfony platforms, e-commerce, Arduino / MQTT / Node-RED.',
+      tags: ['Symfony', 'PHP', 'IoT'],
     },
   ],
-};
-
-export const skills = {
-  kicker: 'Skills',
-  heading: 'A full-stack toolkit, sharpened by production AI.',
-  groups: [
+  education: [
     {
-      title: 'Leadership & architecture',
-      items: [
-        'Technical leadership',
-        'Team management',
-        'System design',
-        'Microservices',
-        'Caching',
-        'Queues / background processing',
-        'Performance optimization',
-        'Scalability',
-        'Code review',
-        'Mentoring',
-        'Agile / Scrum',
-        'Technical interviews',
-      ],
+      title: 'BSc in Electronics & IT',
+      org: 'University of Colombo',
+      period: 'Sri Lanka',
     },
     {
-      title: 'Backend & frontend',
-      items: [
-        'JavaScript (ES6+)',
-        'TypeScript',
-        'Node.js',
-        'Express.js',
-        'NestJS',
-        'React.js',
-        'Next.js',
-        'Redux',
-        'React Native',
-        'SSR / SSG',
-        'PHP',
-        'Python',
-      ],
+      title: 'Generative AI Fundamentals',
+      org: 'Coursera / DeepLearning.AI',
+      period: '2025',
     },
     {
-      title: 'Cloud & DevOps',
-      items: [
-        'AWS (Lambda, EC2, S3, SQS)',
-        'Step Functions',
-        'CloudWatch',
-        'CloudFormation',
-        'Docker',
-        'CI/CD',
-        'Google Cloud',
-        'Microsoft Azure',
-      ],
+      title: 'AWS Certified Solutions Architect – Associate',
+      org: 'Amazon Web Services',
+      period: 'In progress',
     },
-    {
-      title: 'Data, identity & integrations',
-      items: [
-        'PostgreSQL',
-        'MongoDB',
-        'DynamoDB',
-        'MySQL',
-        'TypeORM',
-        'REST APIs',
-        'OAuth 2.0',
-        'JWT',
-        'SSO',
-        'API security',
-        'Authorization / RBAC',
-        'Google / Microsoft / Salesforce',
-      ],
-    },
-    {
-      title: 'AI Engineering',
-      items: [
-        'LLM integration',
-        'RAG',
-        'Context graphs',
-        'Custom AI agents',
-        'Prompt engineering',
-        'Evals',
-        'LLM cost management',
-        'Pydantic AI',
-        'MCP',
-        'Tool calling',
-        'LLM routing',
-        'Copilot · Cursor · Claude Code',
-      ],
-    },
-    {
-      title: 'Testing & tools',
-      items: ['Automated testing', 'Jest', 'ESLint', 'Git', 'JIRA'],
-    },
+  ],
+  recognition: [
+    'Kotiyak Watina Adahasak, Season 2, Final 24 (2018), Sirasa TV.',
+    'IoT hardware product as co-founder of STEM Labs; patent application filed.',
   ],
 };
 
 export const projects = {
   kicker: 'Selected work',
   heading: 'Impact, not just repositories.',
-  intro: 'A few things I owned end to end: what it was, what I did, and the outcome.',
-  featured: {
-    kicker: 'Live product',
-    title: 'Kiln',
-    what: 'A free, no-ads browser toolbox I built and ship in public.',
-    did: 'Designed and shipped Kiln as a Next.js product: image, text, and developer tools that run in the browser, plus benches for students, job-seekers, and creators. Nothing is uploaded.',
-    outcome: 'A live product at kiln.tools, with a public rebuild walkthrough on YouTube.',
-    href: 'https://kiln.tools',
-    hrefLabel: 'Open kiln.tools',
-    tags: ['Next.js', 'Product', 'Vercel'],
+  lead: {
+    title: 'Onboarding AI agent',
+    what: 'Cost-efficient agent that fast-tracks client onboarding and cuts setup time.',
+    did: 'Designed and shipped it with Pydantic AI, MCP tools, LLM routing and multi-step workflows. PoC to production with CEO, Head of AI and product backing; later reused for sales and product.',
+    outcome:
+      'Faster, lower-touch onboarding became a differentiator and an upsell angle.',
+    tags: ['Pydantic AI', 'MCP', 'LLM routing'],
   },
   items: [
     {
-      title: 'Onboarding AI agent',
-      what: 'A cost-efficient, scalable agent that fast-tracks client onboarding and cuts the time users spend getting set up.',
-      did: 'Designed, planned and built it with Pydantic AI, MCP-based tools, LLM routing and multi-step agent workflows. Took it from proof-of-concept to production with backing from the CEO, Head of AI and product owners; partnered with the AI team so the approach could be reused for sales and product workflows.',
-      outcome:
-        'Faster, lower-touch onboarding became a platform differentiator and an upsell / revenue-growth angle, not just an internal efficiency win.',
-      tags: ['Pydantic AI', 'MCP', 'LLM routing', 'Agents'],
-    },
-    {
       title: 'Customer 360 & v4 scale',
-      what: 'Stability, scalability and cost work across the customer 360-degree view and a major v4 platform rollout.',
-      did: 'Led the initiative to scale workloads to millions of records and tighten the critical path, while cutting AWS operational spend.',
-      outcome: '60% faster critical-path performance and 20% lower AWS operational cost.',
-      tags: ['Performance', 'AWS', 'Scale'],
+      outcome: '60% faster critical path. 20% lower AWS cost. Millions of records.',
+      tags: ['Performance', 'AWS'],
     },
     {
       title: 'AI Copilot & Canvas',
-      what: 'Natural-language dashboard widgets. Ask in plain English, get live charts on an interactive Canvas.',
-      did: 'Built a Copilot that turns a single prompt into line, pie, bar and KPI charts plus interactive Canvas dashboards, and extended Copilot context so users can ask richer questions. Shipped user-facing AI across multiple LLMs with RAG, context graphs and agentic systems.',
+      outcome: 'Natural-language charts and dashboards. 30% lower LLM cost. Idea to demo in a day.',
+      tags: ['LLMs', 'RAG', 'React'],
+    },
+    {
+      title: 'Integrations at scale',
       outcome:
-        'Idea to a working demo in about a day. 30% lower LLM cost in production. Recognized by company leadership as a step-change in AI-driven delivery speed.',
-      tags: ['LLMs', 'RAG', 'Canvas', 'React'],
-    },
-    {
-      title: 'AI meeting intelligence',
-      what: 'Bringing meeting transcripts and insights into the platform.',
-      did: 'Designed and shipped microservice pipelines and full-stack features for Microsoft Teams transcripts, plus Google and Outlook calendars and Gmail.',
-      outcome: 'Teams integration shipped on a tight deadline with no reported post-release issues.',
-      tags: ['Integrations', 'Microservices', 'AWS'],
-    },
-    {
-      title: 'Salesforce integration suite',
-      what: 'Two-way sync between Salesforce and the platform.',
-      did: 'Built and delivered a five-component Salesforce suite against three originally planned, including streaming-data handling for large datasets.',
-      outcome: '5 components delivered against 3 planned, with very few defects.',
-      tags: ['Salesforce', 'Streaming', 'System design'],
-    },
-    {
-      title: 'Cross-cloud OAuth',
-      what: 'Gmail / Outlook / Calendar access across Google and Azure.',
-      did: 'Owned user-integration projects end to end: OAuth app registration, consent screens, verification reviews, token flows, plus token-health monitoring to catch credential revocations before customers feel them.',
-      outcome: 'Reliable cross-cloud integrations with early revocation detection and proactive alerting.',
-      tags: ['OAuth 2.0', 'Google', 'Azure'],
-    },
-    {
-      title: 'Email re-architecture',
-      what: 'Core email processing and event filtering at scale.',
-      did: 'Reworked core email processing and event filtering to improve synchronization and processing performance, including dropping unwanted events during initial sync.',
-      outcome: 'Major performance gains, with no bugs reported after release.',
-      tags: ['Performance', 'Cost', 'AWS'],
+        'Teams transcripts on a tight deadline, no post-release issues. Salesforce 5 vs 3. Email rework, no bugs after ship.',
+      tags: ['OAuth', 'Salesforce', 'Email'],
     },
   ],
+  kiln: {
+    kicker: 'Also shipping',
+    title: 'Kiln',
+    what: 'Free, no-ads browser toolbox. Image, text, and developer tools that run locally.',
+    href: 'https://kiln.tools',
+    hrefLabel: 'kiln.tools',
+    tags: ['Next.js', 'Product'],
+  },
 };
 
 export const spotlight = {
   quote:
     'This is huge. How fast he was able to move really shows the true power of AI once utilised best.',
   attribution: 'Company leadership, Velaris',
-  context:
-    'On a rapid R&D spike that turned the Copilot into natural-language dashboard widgets, from idea to a working demo in a day.',
 };
 
 export const recommendations = {
-  kicker: 'In their words',
-  heading: 'What people I worked with say.',
   items: [
     {
       quote:
-        'I hired Newumal as a full-stack engineer, and he quickly proved to be one of the finest professionals I’ve ever worked with. I had the pleasure of mentoring him from Software Engineer to Senior in just two short years. His continuous drive for self-improvement, exceptional problem-solving, and receptiveness to feedback have all contributed to his growth.',
+        'One of the finest professionals I’ve ever worked with. Software Engineer to Senior in two years.',
       name: 'Shayne Weerakoon',
       title: 'Lead Software Engineer, Velaris',
     },
     {
       quote:
-        'As a full-stack engineer, Newumal consistently demonstrated a strong command of React, Node.js, and SQL/DynamoDB. His ability to tackle complex technical challenges and deliver high-quality solutions is truly impressive, and he excels in communication and collaboration.',
+        'Strong command of React, Node.js, and SQL/DynamoDB. He excels in communication and collaboration.',
       name: 'Supun Induwara',
       title: 'Co-founder, Sezenta',
     },
     {
       quote:
-        'What sets Newumal apart is not just his technical expertise, but his ability to understand business requirements and translate them into elegant technical solutions. His foresight in designing our database structure has let us scale efficiently.',
+        'He translates business requirements into elegant technical solutions. His database design let us scale.',
       name: 'Yasintha Jayarathne',
       title: 'Senior Product Owner, Velaris',
     },
@@ -352,9 +203,9 @@ export const recommendations = {
 
 export const youtube = {
   kicker: 'On YouTube',
-  heading: 'Sessions from Build with Newumal.',
-  intro: 'Latest first. Click through to watch on YouTube.',
-  channelLabel: 'Open the channel',
+  heading: 'Sessions.',
+  intro: 'Latest first. Opens on YouTube.',
+  channelLabel: 'Channel',
   channelUrl: socials.youtube,
   items: [
     {
@@ -392,50 +243,11 @@ export const youtube = {
   ],
 };
 
-export const qualification = {
-  kicker: 'Credentials',
-  heading: 'Education & recognition.',
-  education: [
-    {
-      title: 'BSc in Electronics & IT',
-      org: 'University of Colombo',
-      period: 'Sri Lanka',
-    },
-    {
-      title: 'Generative AI Fundamentals',
-      org: 'Coursera / DeepLearning.AI',
-      period: '2025',
-    },
-    {
-      title: 'AWS Certified Solutions Architect – Associate',
-      org: 'Amazon Web Services',
-      period: 'In progress',
-    },
-  ],
-  achievements: [
-    'Publish engineering and technical-leadership content on YouTube (@buildwithnewumal).',
-    'Kotiyak Watina Adahasak, Season 2, Final 24 (2018), a national innovative-ideas competition on Sirasa TV.',
-    'Co-designed and shipped an IoT hardware product as co-founder of STEM Labs; a patent application was filed.',
-  ],
-};
-
 export const resume = {
-  kicker: 'Resume',
-  heading: 'Curriculum vitae.',
-  blurb:
-    'Same story as the site, in one page. View it here or download the PDF.',
   file: '/resume.pdf',
   fileName: 'Newumal-Weerasinghe-Resume.pdf',
-  downloadLabel: 'Download PDF',
-  openLabel: 'Open in new tab',
-  previewTitle: 'Resume PDF preview',
-  mobileHint:
-    'Inline preview works best on desktop. On mobile, open or download the PDF instead.',
 };
 
 export const contact = {
-  kicker: 'Contact',
-  heading: "Let's talk.",
-  blurb:
-    'Open to Team Lead and Associate Technical Lead conversations, and interesting engineering problems in production AI.',
+  blurb: 'Open to Team Lead and Associate Technical Lead conversations.',
 };

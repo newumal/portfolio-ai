@@ -29,7 +29,7 @@ export default {
         kicker: '0.22em',
       },
       maxWidth: {
-        editorial: '1200px',
+        editorial: '1280px',
       },
       keyframes: {
         'fade-up': {

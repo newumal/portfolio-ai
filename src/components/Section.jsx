@@ -6,13 +6,13 @@ import Reveal from './Reveal';
  */
 const Section = ({ id, kicker, heading, intro, children, className = '', headerAlign = 'left' }) => {
   return (
-    <section id={id} className={`scroll-mt-24 px-6 py-20 sm:px-8 md:py-28 ${className}`}>
+    <section id={id} className={`scroll-mt-24 px-6 py-16 sm:px-8 md:py-20 ${className}`}>
       <div className="mx-auto max-w-editorial">
         {(kicker || heading) && (
-          <Reveal className={`mb-12 md:mb-16 ${headerAlign === 'center' ? 'text-center' : 'max-w-2xl'}`}>
+          <Reveal className={`mb-8 md:mb-10 ${headerAlign === 'center' ? 'text-center' : 'max-w-2xl'}`}>
             {kicker && <span className="kicker">{kicker}</span>}
             {heading && (
-              <h2 className="section-heading mt-5 text-balance">{heading}</h2>
+              <h2 className="section-heading mt-3 text-balance">{heading}</h2>
             )}
             {intro && (
               <p className={`mt-4 text-base leading-relaxed text-fog sm:text-lg ${headerAlign === 'center' ? 'mx-auto max-w-2xl' : ''}`}>

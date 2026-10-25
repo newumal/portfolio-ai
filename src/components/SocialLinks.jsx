@@ -14,10 +14,10 @@ const links = [
  */
 const SocialLinks = ({ variant = 'ghost', className = '' }) => {
   const base =
-    'transition-colors duration-300 text-fog hover:text-accent focus-visible:text-accent';
+    'transition-colors duration-300 text-fog hover:text-chalk focus-visible:text-chalk';
   const chip =
     variant === 'ghost'
-      ? 'grid h-11 w-11 place-items-center rounded-full border border-line hover:border-accent/60 bg-panel'
+      ? 'grid h-10 w-10 place-items-center rounded-full border border-line hover:border-chalk/40 bg-panel/40'
       : '';
 
   return (
