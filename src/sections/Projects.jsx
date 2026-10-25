@@ -1,6 +1,6 @@
 import Section from '../components/Section';
 import Reveal from '../components/Reveal';
-import { FaQuoteLeft } from 'react-icons/fa';
+import { FaArrowRight, FaQuoteLeft } from 'react-icons/fa';
 import { projects, recommendations, spotlight } from '../data/content';
 
 const Projects = () => {
@@ -12,6 +12,50 @@ const Projects = () => {
         heading={projects.heading}
         intro={projects.intro}
       >
+        {projects.featured && (
+          <Reveal
+            delay={0.04}
+            className="mb-6 flex flex-col rounded-2xl border border-accent/40 bg-accent/[0.06] p-8 transition-colors duration-300 hover:border-accent/70 sm:p-10 md:flex-row md:items-start md:gap-10"
+          >
+            <div className="flex-1">
+              <span className="kicker">{projects.featured.kicker}</span>
+              <h3 className="mt-4 font-display text-2xl font-bold text-chalk sm:text-3xl">
+                {projects.featured.title}
+              </h3>
+              <p className="mt-2 text-sm font-medium text-fog">{projects.featured.what}</p>
+              <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed">
+                <p className="text-fog">
+                  <span className="font-semibold text-chalk">What I did: </span>
+                  {projects.featured.did}
+                </p>
+                <p className="text-chalk">
+                  <span className="font-semibold text-accent">Outcome: </span>
+                  {projects.featured.outcome}
+                </p>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {projects.featured.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <a
+              href={projects.featured.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-colors hover:bg-accent-hover md:mt-12"
+            >
+              {projects.featured.hrefLabel}
+              <FaArrowRight className="h-3 w-3" />
+            </a>
+          </Reveal>
+        )}
+
         <div className="grid gap-6 md:grid-cols-2">
           {projects.items.map((project, i) => (
             <Reveal

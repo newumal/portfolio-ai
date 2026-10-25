@@ -126,6 +126,24 @@ const Home = () => {
               </div>
 
               <div className="hairline border-t pt-8">
+                <span className="kicker">{hero.sidebar.shipping.label}</span>
+                <h3 className="mt-4 font-display text-lg font-semibold text-chalk">
+                  {hero.sidebar.shipping.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">
+                  {hero.sidebar.shipping.body}
+                </p>
+                <a
+                  href={hero.sidebar.shipping.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline mt-4"
+                >
+                  {hero.sidebar.shipping.hrefLabel} <FaArrowRight className="h-3 w-3" />
+                </a>
+              </div>
+
+              <div className="hairline border-t pt-8">
                 <span className="kicker">Follow me</span>
                 <SocialLinks className="mt-4" />
               </div>

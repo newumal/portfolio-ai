@@ -26,6 +26,7 @@ export const nav = [
   { name: 'Journey', to: 'journey' },
   { name: 'Skills', to: 'skills' },
   { name: 'Work', to: 'projects' },
+  { name: 'Sessions', to: 'sessions' },
   { name: 'Resume', to: 'resume', highlight: true },
   { name: 'Contact', to: 'contact' },
 ];
@@ -46,6 +47,13 @@ export const hero = {
     focus: {
       label: 'What I focus on',
       body: 'Production AI and cost-aware systems: MCP tools, LLM routing, and custom agents that cut setup time and cloud spend, without handing judgment to the model.',
+    },
+    shipping: {
+      label: 'Also shipping',
+      title: 'Kiln',
+      body: 'A free, no-ads browser toolbox. Image, text, and developer tools that run locally.',
+      href: 'https://kiln.tools',
+      hrefLabel: 'kiln.tools',
     },
   },
 };
@@ -251,6 +259,16 @@ export const projects = {
   kicker: 'Selected work',
   heading: 'Impact, not just repositories.',
   intro: 'A few things I owned end to end: what it was, what I did, and the outcome.',
+  featured: {
+    kicker: 'Live product',
+    title: 'Kiln',
+    what: 'A free, no-ads browser toolbox I built and ship in public.',
+    did: 'Designed and shipped Kiln as a Next.js product: image, text, and developer tools that run in the browser, plus benches for students, job-seekers, and creators. Nothing is uploaded.',
+    outcome: 'A live product at kiln.tools, with a public rebuild walkthrough on YouTube.',
+    href: 'https://kiln.tools',
+    hrefLabel: 'Open kiln.tools',
+    tags: ['Next.js', 'Product', 'Vercel'],
+  },
   items: [
     {
       title: 'Onboarding AI agent',
@@ -339,6 +357,49 @@ export const recommendations = {
   ],
 };
 
+export const youtube = {
+  kicker: 'On YouTube',
+  heading: 'Sessions from Build with Newumal.',
+  intro:
+    'Engineering and technical-leadership videos. Cards open the full session on YouTube.',
+  channelLabel: 'Open the channel',
+  channelUrl: socials.youtube,
+  items: [
+    {
+      id: '1HpGch3jL-I',
+      title: 'I rebuilt my free tools website',
+      blurb:
+        'Rebuilding Kiln as a free, no-ads tools site: the product call, the stack, and shipping it in public.',
+      duration: '23:47',
+      topic: 'Product',
+    },
+    {
+      id: 'jRc-pHvsE_Y',
+      title: 'Generative AI vs AI Agents vs Agentic AI',
+      blurb:
+        'Same product can sit in all three buckets. The split that matters is who decides the next step.',
+      duration: '21:37',
+      topic: 'AI systems',
+    },
+    {
+      id: 'el8j9jQJJA0',
+      title: 'Never hit AI credit limits again',
+      blurb:
+        'Why credits burn down so fast, and a practical way to keep shipping without slamming into usage walls.',
+      duration: '22:54',
+      topic: 'AI workflow',
+    },
+    {
+      id: 'qOAwyCzruEA',
+      title: 'Why most AI prompts fail',
+      blurb:
+        'The failure is usually the ask, not the model. How I rewrite prompts so the output is actually usable.',
+      duration: '13:09',
+      topic: 'Prompting',
+    },
+  ],
+};
+
 export const qualification = {
   kicker: 'Credentials',
   heading: 'Education & recognition.',
@@ -347,6 +408,16 @@ export const qualification = {
       title: 'BSc in Electronics & IT',
       org: 'University of Colombo',
       period: 'Sri Lanka',
+    },
+    {
+      title: 'Generative AI Fundamentals',
+      org: 'Coursera / DeepLearning.AI',
+      period: '2025',
+    },
+    {
+      title: 'AWS Certified Solutions Architect – Associate',
+      org: 'Amazon Web Services',
+      period: 'In progress',
     },
   ],
   achievements: [
