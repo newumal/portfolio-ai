@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { AnimatePresence, motion } from 'framer-motion';
 import { nav, site } from '../data/content';
 
@@ -39,11 +40,12 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                download={item.download}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-fog transition-colors hover:text-chalk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-fog transition-colors hover:text-chalk"
               >
-                <FaDownload className="h-3 w-3" />
                 {item.name}
+                <FaArrowUpRightFromSquare className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             ) : (
               <Link
@@ -88,11 +90,12 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    download={item.download}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
                     className="inline-flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-fog hover:bg-panel2 hover:text-chalk"
                   >
-                    <FaDownload className="h-3.5 w-3.5" />
+                    <FaArrowUpRightFromSquare className="h-3.5 w-3.5" />
                     {item.name}
                   </a>
                 ) : (

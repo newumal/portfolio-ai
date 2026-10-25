@@ -37,6 +37,7 @@ export const nav = [
 export const hero = {
   kicker: 'Team Lead · Associate Technical Lead',
   headline: 'I lead teams and ship production AI.',
+  headlineAccent: 'production AI', // underlined span within the headline
   primaryCta: { label: 'View my work', to: 'projects' },
   resumeCta: {
     label: 'Resume',
@@ -158,18 +159,23 @@ export const projects = {
   items: [
     {
       title: 'Customer 360 & v4 scale',
-      outcome: '60% faster critical path. 20% lower AWS cost. Millions of records.',
+      metric: '60%',
+      metricLabel: 'faster critical path',
+      desc: '20% lower AWS cost across millions of records. Re-architected the critical path for both speed and spend.',
       tags: ['Performance', 'AWS'],
     },
     {
       title: 'AI Copilot & Canvas',
-      outcome: 'Natural-language charts and dashboards. 30% lower LLM cost. Idea to demo in a day.',
+      metric: '30%',
+      metricLabel: 'lower LLM cost',
+      desc: 'Natural-language charts and dashboards. Idea to working demo in a single day.',
       tags: ['LLMs', 'RAG', 'React'],
     },
     {
       title: 'Integrations at scale',
-      outcome:
-        'Teams transcripts on a tight deadline, no post-release issues. Salesforce 5 vs 3. Email rework, no bugs after ship.',
+      metric: '0',
+      metricLabel: 'post-release issues',
+      desc: 'Teams transcripts on a tight deadline, Salesforce 5 vs 3, email rework — no bugs after ship.',
       tags: ['OAuth', 'Salesforce', 'Email'],
     },
   ],

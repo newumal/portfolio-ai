@@ -17,7 +17,7 @@ const Resume = () => {
           <a
             href={resume.file}
             download={resume.fileName}
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-all hover:bg-accent-hover"
+            className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-black/30 transition-all hover:bg-accent-hover"
           >
             <FaDownload className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
             {resume.downloadLabel}

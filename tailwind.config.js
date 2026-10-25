@@ -14,16 +14,18 @@ export default {
         mist: '#C7CCD3', // brighter secondary — for text over imagery
         chalk: '#F5F5F7', // primary near-white text
         accent: {
-          DEFAULT: '#2E5BFF', // electric blue — used sparingly
-          hover: '#4C74FF',
-          soft: 'rgba(46, 91, 255, 0.12)',
+          // Monochrome signal — the "accent" is light itself, used with discipline
+          DEFAULT: '#F0F0F2',
+          hover: '#FFFFFF',
+          soft: 'rgba(245, 245, 247, 0.10)',
         },
         // legacy alias so any stray reference keeps working
-        primary: '#2E5BFF',
+        primary: '#F0F0F2',
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       letterSpacing: {
         kicker: '0.22em',
