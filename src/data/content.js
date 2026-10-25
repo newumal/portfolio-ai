@@ -145,6 +145,10 @@ export const journey = {
   ],
 };
 
+// ⚠️ PLACEHOLDER METRICS — illustrative figures sized to a ~$2M ARR, multi-tenant
+// B2B SaaS on AWS (~12M records). Baselines, $ amounts and latencies below are
+// NOT yet verified. Replace with real numbers before merging to main. Search "~"
+// to find them.
 export const projects = {
   kicker: 'Selected work',
   heading: 'Impact, not just repositories.',
@@ -153,7 +157,7 @@ export const projects = {
     what: 'Cost-efficient agent that fast-tracks client onboarding and cuts setup time.',
     did: 'Designed and shipped it with Pydantic AI, MCP tools, LLM routing and multi-step workflows. PoC to production with CEO, Head of AI and product backing; later reused for sales and product.',
     outcome:
-      'Faster, lower-touch onboarding became a differentiator and an upsell angle.',
+      'Hands-on onboarding setup dropped from ~2 weeks to ~3 days — lower-touch onboarding became a differentiator and an upsell angle.',
     tags: ['Pydantic AI', 'MCP', 'LLM routing'],
   },
   items: [
@@ -161,21 +165,21 @@ export const projects = {
       title: 'Customer 360 & v4 scale',
       metric: '60%',
       metricLabel: 'faster critical path',
-      desc: '20% lower AWS cost across millions of records. Re-architected the critical path for both speed and spend.',
+      desc: 'Took the Customer-360 load from ~4.2s to ~1.6s (p95) across ~12M records, and cut ~20% (~$5k/mo) off AWS — by replacing N+1 reads with a materialized entity cache and moving heavy aggregation to async workers.',
       tags: ['Performance', 'AWS'],
     },
     {
       title: 'AI Copilot & Canvas',
       metric: '30%',
       metricLabel: 'lower LLM cost',
-      desc: 'Natural-language charts and dashboards. Idea to working demo in a single day.',
+      desc: 'Natural-language charts and dashboards — idea to working demo in a day. Cut LLM spend ~30% (~$3.1k → ~$2.2k/mo) with model-tier routing (cheap model to classify, frontier only to synthesise) plus prompt and result caching.',
       tags: ['LLMs', 'RAG', 'React'],
     },
     {
       title: 'Integrations at scale',
       metric: '0',
       metricLabel: 'post-release issues',
-      desc: 'Teams transcripts on a tight deadline, Salesforce 5 vs 3, email rework — no bugs after ship.',
+      desc: 'Teams transcripts on a tight deadline, Salesforce (5 objects vs 3), and an email-sync rework — 0 post-release incidents across ~20 releases in 6 months, backed by contract tests and staged rollout.',
       tags: ['OAuth', 'Salesforce', 'Email'],
     },
   ],
