@@ -159,6 +159,12 @@ export const projects = {
     outcome:
       'Hands-on onboarding setup dropped from ~2 weeks to ~3 days — lower-touch onboarding became a differentiator and an upsell angle.',
     tags: ['Pydantic AI', 'MCP', 'LLM routing'],
+    // Third-party proof: Velaris publicly launched this work as "Nexus".
+    proof: {
+      note: 'Launched publicly by Velaris as “Nexus”',
+      href: 'https://www.linkedin.com/posts/introducing-nexus-velaris-expert-onboarding-ugcPost-7516114839648407553-JRU6/',
+      label: 'See the announcement',
+    },
   },
   items: [
     {
@@ -274,6 +280,7 @@ export const contact = {
   heading: "Let's talk.",
   blurb:
     'Open to Team Lead and Associate Technical Lead roles, and to interesting engineering conversations.',
+  availability: 'Open to remote, relocation, or on-site — worldwide.',
   ctaLabel: 'Email me',
 };
 

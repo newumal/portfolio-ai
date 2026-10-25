@@ -9,6 +9,11 @@ const Contact = () => {
     <Section id="contact" kicker={contact.kicker} heading={contact.heading}>
       <Reveal className="max-w-xl" delay={0.05}>
         <p className="text-base leading-relaxed text-fog sm:text-lg">{contact.blurb}</p>
+        {contact.availability && (
+          <p className="mt-3 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-mist">
+            {contact.availability}
+          </p>
+        )}
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
