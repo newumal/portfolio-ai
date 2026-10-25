@@ -12,10 +12,49 @@ const Projects = () => {
         heading={projects.heading}
         intro={projects.intro}
       >
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.items.map((project, i) => (
+            <Reveal
+              key={project.title}
+              delay={(i % 2) * 0.08}
+              className="group flex h-full flex-col rounded-2xl border border-line bg-panel p-8 transition-colors duration-300 hover:border-accent/50"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="font-display text-xl font-bold text-chalk">
+                  {project.title}
+                </h3>
+              </div>
+              <p className="mt-2 text-sm font-medium text-fog">{project.what}</p>
+
+              <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed">
+                <p className="text-fog">
+                  <span className="font-semibold text-chalk">What I did: </span>
+                  {project.did}
+                </p>
+                <p className="text-chalk">
+                  <span className="font-semibold text-accent">Outcome: </span>
+                  {project.outcome}
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
         {projects.featured && (
           <Reveal
             delay={0.04}
-            className="mb-6 flex flex-col rounded-2xl border border-accent/40 bg-accent/[0.06] p-8 transition-colors duration-300 hover:border-accent/70 sm:p-10 md:flex-row md:items-start md:gap-10"
+            className="mt-6 flex flex-col rounded-2xl border border-accent/40 bg-accent/[0.06] p-8 transition-colors duration-300 hover:border-accent/70 sm:p-10 md:flex-row md:items-start md:gap-10"
           >
             <div className="flex-1">
               <span className="kicker">{projects.featured.kicker}</span>
@@ -55,45 +94,6 @@ const Projects = () => {
             </a>
           </Reveal>
         )}
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.items.map((project, i) => (
-            <Reveal
-              key={project.title}
-              delay={(i % 2) * 0.08}
-              className="group flex h-full flex-col rounded-2xl border border-line bg-panel p-8 transition-colors duration-300 hover:border-accent/50"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-xl font-bold text-chalk">
-                  {project.title}
-                </h3>
-              </div>
-              <p className="mt-2 text-sm font-medium text-fog">{project.what}</p>
-
-              <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed">
-                <p className="text-fog">
-                  <span className="font-semibold text-chalk">What I did: </span>
-                  {project.did}
-                </p>
-                <p className="text-chalk">
-                  <span className="font-semibold text-accent">Outcome: </span>
-                  {project.outcome}
-                </p>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          ))}
-        </div>
 
         {/* Recognition spotlight — internal validation of the Copilot R&D */}
         <Reveal

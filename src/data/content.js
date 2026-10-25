@@ -48,13 +48,6 @@ export const hero = {
       label: 'What I focus on',
       body: 'Production AI and cost-aware systems: MCP tools, LLM routing, and custom agents that cut setup time and cloud spend, without handing judgment to the model.',
     },
-    shipping: {
-      label: 'Also shipping',
-      title: 'Kiln',
-      body: 'A free, no-ads browser toolbox. Image, text, and developer tools that run locally.',
-      href: 'https://kiln.tools',
-      hrefLabel: 'kiln.tools',
-    },
   },
 };
 
@@ -360,8 +353,7 @@ export const recommendations = {
 export const youtube = {
   kicker: 'On YouTube',
   heading: 'Sessions from Build with Newumal.',
-  intro:
-    'Engineering and technical-leadership videos. Cards open the full session on YouTube.',
+  intro: 'Latest first. Click through to watch on YouTube.',
   channelLabel: 'Open the channel',
   channelUrl: socials.youtube,
   items: [

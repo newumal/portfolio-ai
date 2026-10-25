@@ -6,7 +6,34 @@ import { youtube } from '../data/content';
 const thumb = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 const watchUrl = (id) => `https://www.youtube.com/watch?v=${id}`;
 
+const Thumb = ({ id, title, compact = false }) => (
+  <div
+    className={`relative overflow-hidden bg-ink ${
+      compact ? 'aspect-video w-[8.5rem] shrink-0 rounded-lg' : 'aspect-video w-full rounded-xl'
+    }`}
+  >
+    <img
+      src={thumb(id)}
+      alt=""
+      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+    />
+    <div className="absolute inset-0 bg-ink/25 transition-colors group-hover:bg-ink/10" />
+    <span
+      className={`absolute grid place-items-center rounded-full bg-accent text-white shadow-lg shadow-accent/25 transition-transform group-hover:scale-105 ${
+        compact
+          ? 'inset-0 m-auto h-8 w-8'
+          : 'bottom-3 left-3 h-10 w-10'
+      }`}
+    >
+      <FaPlay className={compact ? 'ml-0.5 h-2.5 w-2.5' : 'ml-0.5 h-3 w-3'} />
+    </span>
+    <span className="sr-only">Watch {title} on YouTube</span>
+  </div>
+);
+
 const YouTube = () => {
+  const [featured, ...rest] = youtube.items;
+
   return (
     <Section
       id="sessions"
@@ -15,66 +42,69 @@ const YouTube = () => {
       intro={youtube.intro}
       className="bg-panel/40"
     >
-      <div className="grid gap-6 md:grid-cols-2">
-        {youtube.items.map((item, i) => (
-          <Reveal
-            key={item.id}
-            delay={(i % 2) * 0.08}
-            className="h-full"
+      <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
+        <Reveal className="lg:col-span-7">
+          <a
+            href={watchUrl(featured.id)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
           >
-            <a
-              href={watchUrl(item.id)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel transition-colors duration-300 hover:border-accent/50"
-            >
-              <div className="relative aspect-video overflow-hidden bg-ink">
-                <img
-                  src={thumb(item.id)}
-                  alt=""
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-                <div className="absolute inset-0 bg-ink/20 transition-colors group-hover:bg-ink/10" />
-                <span className="absolute inset-0 grid place-items-center">
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-accent text-white shadow-lg shadow-accent/30 transition-transform group-hover:scale-110">
-                    <FaPlay className="ml-0.5 h-4 w-4" />
-                  </span>
-                </span>
-                <span className="absolute bottom-3 right-3 rounded bg-ink/80 px-2 py-0.5 text-xs font-semibold text-chalk">
-                  {item.duration}
-                </span>
-              </div>
+            <Thumb id={featured.id} title={featured.title} />
+            <p className="mt-4 text-xs font-semibold uppercase tracking-kicker text-accent">
+              {featured.topic}
+              <span className="mx-2 text-line">·</span>
+              <span className="text-fog">{featured.duration}</span>
+            </p>
+            <h3 className="mt-2 font-display text-2xl font-bold text-chalk transition-colors group-hover:text-accent">
+              {featured.title}
+            </h3>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-fog">
+              {featured.blurb}
+            </p>
+          </a>
+        </Reveal>
 
-              <div className="flex flex-1 flex-col p-6 sm:p-8">
-                <span className="text-xs font-semibold uppercase tracking-kicker text-accent">
-                  {item.topic}
-                </span>
-                <h3 className="mt-3 font-display text-xl font-bold text-chalk">
-                  {item.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-fog">
-                  {item.blurb}
-                </p>
-                <span className="link-underline mt-5">
-                  Watch on YouTube <FaYoutube className="h-3.5 w-3.5" />
-                </span>
-              </div>
-            </a>
-          </Reveal>
-        ))}
+        <div className="lg:col-span-5">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-kicker text-fog">
+            More sessions
+          </p>
+          <ul className="divide-y divide-line border-t border-line">
+            {rest.map((item, i) => (
+              <Reveal as="li" key={item.id} delay={0.06 + i * 0.05}>
+                <a
+                  href={watchUrl(item.id)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex gap-4 py-4"
+                >
+                  <Thumb id={item.id} title={item.title} compact />
+                  <div className="min-w-0 self-center">
+                    <p className="text-xs font-semibold uppercase tracking-kicker text-fog">
+                      {item.topic}
+                      <span className="mx-2 text-line">·</span>
+                      {item.duration}
+                    </p>
+                    <h3 className="mt-1.5 font-display text-base font-semibold leading-snug text-chalk transition-colors group-hover:text-accent">
+                      {item.title}
+                    </h3>
+                  </div>
+                </a>
+              </Reveal>
+            ))}
+          </ul>
+
+          <a
+            href={youtube.channelUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline mt-6"
+          >
+            <FaYoutube className="h-3.5 w-3.5" />
+            {youtube.channelLabel}
+          </a>
+        </div>
       </div>
-
-      <Reveal delay={0.1} className="mt-10 flex justify-center md:justify-start">
-        <a
-          href={youtube.channelUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-ink/40 px-6 py-3 text-sm font-semibold text-chalk transition-colors hover:border-accent/60 hover:text-accent"
-        >
-          <FaYoutube className="h-4 w-4" />
-          {youtube.channelLabel}
-        </a>
-      </Reveal>
     </Section>
   );
 };
