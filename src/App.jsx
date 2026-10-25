@@ -7,6 +7,7 @@ import Philosophy from './sections/Philosophy';
 import Journey from './sections/Journey';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
+import YouTube from './sections/YouTube';
 import Qualification from './sections/Qualification';
 import Resume from './sections/Resume';
 import Contact from './sections/Contact';
@@ -23,6 +24,7 @@ function App() {
         <Journey />
         <Skills />
         <Projects />
+        <YouTube />
         <Qualification />
         <Resume />
         <Contact />
