@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './sections/Home';
@@ -13,6 +14,7 @@ import Contact from './sections/Contact';
 function App() {
   return (
     <div className="min-h-screen bg-ink text-chalk">
+      <Analytics />
       <Navbar />
       <main>
         <Home />
