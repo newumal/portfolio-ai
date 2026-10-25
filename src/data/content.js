@@ -276,9 +276,11 @@ export const contact = {
 export const skills = {
   kicker: 'Skills',
   heading: 'A full-stack toolkit, sharpened by AI.',
+  // Two tiers so the page reads senior: depth I'd be grilled on vs supporting breadth.
   groups: [
     {
       title: 'Leadership & Architecture',
+      tier: 'core',
       items: [
         'Technical leadership',
         'Team management',
@@ -294,52 +296,8 @@ export const skills = {
       ],
     },
     {
-      title: 'Frontend',
-      items: [
-        'React.js',
-        'Next.js',
-        'Redux',
-        'React Native',
-        'JavaScript (ES6+)',
-        'TypeScript',
-        'Tailwind',
-        'SSR / SSG (basic)',
-      ],
-    },
-    {
-      title: 'Backend',
-      items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'Python', 'PHP'],
-    },
-    {
-      title: 'Databases',
-      items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'MySQL', 'TypeORM'],
-    },
-    {
-      title: 'Cloud & DevOps',
-      items: [
-        'AWS (Lambda, EC2, S3, SQS)',
-        'Step Functions',
-        'CloudWatch',
-        'CloudFormation',
-        'Google Cloud',
-        'Azure',
-        'Docker',
-        'CI/CD',
-      ],
-    },
-    {
-      title: 'Identity & Security',
-      items: [
-        'OAuth 2.0',
-        'JWT',
-        'SSO',
-        'API security',
-        'Authorization / RBAC',
-        'Token management',
-      ],
-    },
-    {
       title: 'AI Engineering',
+      tier: 'core',
       items: [
         'LLMs',
         'RAG',
@@ -356,7 +314,58 @@ export const skills = {
       ],
     },
     {
+      title: 'Backend',
+      tier: 'core',
+      items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'Python', 'PHP'],
+    },
+    {
+      title: 'Frontend',
+      tier: 'core',
+      items: [
+        'React.js',
+        'Next.js',
+        'Redux',
+        'React Native',
+        'JavaScript (ES6+)',
+        'TypeScript',
+        'Tailwind',
+        'SSR / SSG (basic)',
+      ],
+    },
+    {
+      title: 'Cloud & DevOps',
+      tier: 'working',
+      items: [
+        'AWS (Lambda, EC2, S3, SQS)',
+        'Step Functions',
+        'CloudWatch',
+        'CloudFormation',
+        'Google Cloud',
+        'Azure',
+        'Docker',
+        'CI/CD',
+      ],
+    },
+    {
+      title: 'Databases',
+      tier: 'working',
+      items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'MySQL', 'TypeORM'],
+    },
+    {
+      title: 'Identity & Security',
+      tier: 'working',
+      items: [
+        'OAuth 2.0',
+        'JWT',
+        'SSO',
+        'API security',
+        'Authorization / RBAC',
+        'Token management',
+      ],
+    },
+    {
       title: 'Testing & Tools',
+      tier: 'working',
       items: ['Automated testing', 'Jest', 'ESLint', 'Git', 'JIRA'],
     },
   ],
