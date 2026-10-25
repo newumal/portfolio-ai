@@ -21,6 +21,7 @@ export const socials = {
 
 export const nav = [
   { name: 'Work', to: 'projects' },
+  { name: 'Architecture', to: 'architecture' },
   { name: 'Sessions', to: 'sessions' },
   { name: 'Experience', to: 'experience' },
   { name: 'Skills', to: 'skills' },
@@ -282,6 +283,51 @@ export const contact = {
     'Open to Team Lead and Associate Technical Lead roles, and to interesting engineering conversations.',
   availability: 'Open to remote, relocation, or on-site — worldwide.',
   ctaLabel: 'Email me',
+};
+
+// Public, generalized write-up of the onboarding agent ("Nexus").
+// Deliberately omits internal service, repo, event, queue, table and schema names.
+export const architecture = {
+  kicker: 'Architecture',
+  heading: 'Inside the onboarding agent.',
+  intro:
+    'A look under the hood of Nexus — the agent I designed and shipped. The model only ever proposes; a separate runtime executes every write behind a policy gate and an idempotent ledger. Work is serialised per account, so the same message can be retried safely, and a human CSM always signs off the result — the agent prepares, the person owns the outcome.',
+  flow: [
+    { label: 'Trigger', sub: 'A new account, or a wake' },
+    { label: 'Agent runtime', sub: 'Claims the run — serialised per account' },
+    { label: 'Model router', sub: 'Reasoning model plans · lightweight model chats' },
+    { label: 'Read-only tools', sub: 'Calls, email, notes, meetings, surveys, tickets' },
+    { label: 'Policy gate + ledger', sub: 'auto / ask / off · idempotent, capped writes' },
+    { label: 'Onboarding plan', sub: 'Drafted automatically, tailored per account' },
+    { label: 'CSM review & commit', sub: 'Human signs off — the only “done”' },
+  ],
+  notes: [
+    {
+      title: 'Propose vs. execute',
+      body: 'The model has only read tools and no “complete” action. A separate runtime performs every write, so a prompt can never mutate data directly.',
+    },
+    {
+      title: 'Model routing',
+      body: 'A reasoning-grade model plans each turn and scores readiness; a lightweight model handles configuration and account chat. Caching keeps repeated turns cheap.',
+    },
+    {
+      title: 'Idempotent by design',
+      body: 'Work is serialised per account on a FIFO queue, and every run and write takes a claim — so retries and redeliveries never double-apply.',
+    },
+    {
+      title: 'Multi-tenant isolation',
+      body: 'Every message carries a verified token; queries run inside that tenant’s own schema, and the queue ordering is keyed to tenant and account.',
+    },
+    {
+      title: 'Durable state',
+      body: 'Engagement, plan, and the run and action ledgers live in Postgres per tenant. A wake is a unit of work, not a chat transcript.',
+    },
+    {
+      title: 'Human handover',
+      body: 'Completion only happens when a CSM commits the plan. There is no model-driven “done”.',
+    },
+  ],
+  stack: ['Pydantic AI', 'Amazon Bedrock', 'MCP tools', 'LLM routing', 'Postgres', 'SQS FIFO', 'AWS ECS'],
 };
 
 export const skills = {

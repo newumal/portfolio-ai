@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './sections/Home';
 import Projects from './sections/Projects';
+import Architecture from './sections/Architecture';
 import YouTube from './sections/YouTube';
 import Journey from './sections/Journey';
 import Skills from './sections/Skills';
@@ -17,6 +18,7 @@ function App() {
       <main>
         <Home />
         <Projects />
+        <Architecture />
         <YouTube />
         <Journey />
         <Skills />
