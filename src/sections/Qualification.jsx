@@ -10,7 +10,7 @@ const Qualification = () => {
         {/* Education & certs */}
         <Reveal className="lg:col-span-7" delay={0.05}>
           <h3 className="kicker !text-chalk before:bg-accent">
-            <FaGraduationCap className="h-4 w-4 text-accent" /> Education & certifications
+            <FaGraduationCap className="h-4 w-4 text-accent" /> Education
           </h3>
           <ul className="mt-6 space-y-4">
             {qualification.education.map((item) => (
